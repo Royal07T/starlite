@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Vendor imports */
+@import "./vendor/bootstrap.min.css";
+@import "./vendor/fonts.css";
+@import "./vendor/icomoon/style.css";
+@import "./vendor/select2.min.css";
+@import "./vendor/main.css";
+@import "./vendor/rtl.css";
