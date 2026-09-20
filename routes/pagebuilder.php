@@ -52,6 +52,13 @@ Route::middleware($middleware)->get('get-pb-section', [PageBuilderController::cl
 
 Route::middleware($middleware)->get('pages/{id}/iframe', [PageBuilderController::class, 'iframe'])->name('pagebuilder.iframe');
 
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('find-tutors');
+    }
+    return redirect()->route('find-tutors');
+})->name('pagebuilder.home');
+
 Route::any('/{any}', function (Request $request) {
     $builder = new PageBuilderController();
     return $builder->renderPage($request->path());
