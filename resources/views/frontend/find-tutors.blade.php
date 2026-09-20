@@ -148,7 +148,7 @@
                 )
                 <div class="col-12 col-lg-4 col-xl-3">
                     <div class="am-besttutor">
-                        @if(!empty(setting('_lernen.help_section_media')[0]['path']))
+                        @if(!empty(setting('_lernen.help_section_media')[0]['path']) && Storage::disk(getStorageDisk())->exists(setting('_lernen.help_section_media')[0]['path']))
                         <div class="am-besttutor_video">
                             <video width="560" height="180"
                                 src="{{ url(Storage::url(setting('_lernen.help_section_media')[0]['path'])) }}" controls

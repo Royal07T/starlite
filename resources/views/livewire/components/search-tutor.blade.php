@@ -37,7 +37,7 @@
                                 $tutorInfo['image'] = setting('_general.default_avatar_for_user') ? url(Storage::url(setting('_general.default_avatar_for_user')[0]['path'])) : resizedImage('placeholder.png', 36, 36);
                             }
                         @endphp
-                        @if(!empty($tutor?->profile?->intro_video))
+                        @if(!empty($tutor?->profile?->intro_video) && Storage::disk(getStorageDisk())->exists($tutor->profile->intro_video))
                             <div class="am-tutorsearch_card" id="profile-{{ $tutor->id }}">
                                 <div class="am-tutorsearch_video">
                                     @if(!empty($tutor->profile->intro_video))

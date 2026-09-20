@@ -69,7 +69,7 @@
                             <div class="am-learning_video">
                                 @if(!empty(pagesetting('video')))
                                     <div class="am-learning_video_info">
-                                        @if(!empty(pagesetting('video')[0]['path']))
+                                        @if(!empty(pagesetting('video')[0]['path']) && Storage::disk(getStorageDisk())->exists(pagesetting('video')[0]['path']))
                                             <video class="video-js" data-setup='{}' preload="auto" id="auth-video" width="416" height="284" controls >
                                                 <source src="{{ url(Storage::url(pagesetting('video')[0]['path'])) }}" type="video/mp4" >
                                             </video>   
