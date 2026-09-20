@@ -5,12 +5,12 @@
     "isEntry": true
   },
   "public/admin/css/feather-icons.css": {
-    "file": "assets/feather-icons-4vF47ZKf.css",
+    "file": "assets/feather-icons-BJCBOQOF.css",
     "src": "public/admin/css/feather-icons.css",
     "isEntry": true
   },
   "public/admin/css/fontawesome/all.min.css": {
-    "file": "assets/all-DcSiyyy5.css",
+    "file": "assets/all-y683kHQV.css",
     "src": "public/admin/css/fontawesome/all.min.css",
     "isEntry": true
   },
@@ -23,11 +23,11 @@
     "src": "public/admin/css/fonts/icomoon.svg"
   },
   "public/admin/css/fonts/icomoon.ttf": {
-    "file": "assets/icomoon-BnzIyerl.ttf",
+    "file": "assets/icomoon-D3CA-bUq.ttf",
     "src": "public/admin/css/fonts/icomoon.ttf"
   },
   "public/admin/css/fonts/icomoon.woff": {
-    "file": "assets/icomoon-D4Ntk0M-.woff",
+    "file": "assets/icomoon-CVuOrFFb.woff",
     "src": "public/admin/css/fonts/icomoon.woff"
   },
   "public/admin/css/fonts/themify.eot": {
@@ -65,11 +65,11 @@
     "src": "public/admin/css/webfonts/fa-brands-400.svg"
   },
   "public/admin/css/webfonts/fa-brands-400.ttf": {
-    "file": "assets/fa-brands-400-DHlgUUUo.ttf",
+    "file": "assets/fa-brands-400-CSYNqBb_.ttf",
     "src": "public/admin/css/webfonts/fa-brands-400.ttf"
   },
   "public/admin/css/webfonts/fa-brands-400.woff": {
-    "file": "assets/fa-brands-400-DRdYKbaK.woff",
+    "file": "assets/fa-brands-400-CEJbCg16.woff",
     "src": "public/admin/css/webfonts/fa-brands-400.woff"
   },
   "public/admin/css/webfonts/fa-brands-400.woff2": {
@@ -85,11 +85,11 @@
     "src": "public/admin/css/webfonts/fa-regular-400.svg"
   },
   "public/admin/css/webfonts/fa-regular-400.ttf": {
-    "file": "assets/fa-regular-400-Di_snUVE.ttf",
+    "file": "assets/fa-regular-400-D1vz6WBx.ttf",
     "src": "public/admin/css/webfonts/fa-regular-400.ttf"
   },
   "public/admin/css/webfonts/fa-regular-400.woff": {
-    "file": "assets/fa-regular-400-DIzZUk31.woff",
+    "file": "assets/fa-regular-400-DFnMcJPd.woff",
     "src": "public/admin/css/webfonts/fa-regular-400.woff"
   },
   "public/admin/css/webfonts/fa-regular-400.woff2": {
@@ -105,11 +105,11 @@
     "src": "public/admin/css/webfonts/fa-solid-900.svg"
   },
   "public/admin/css/webfonts/fa-solid-900.ttf": {
-    "file": "assets/fa-solid-900-BTYdUqR3.ttf",
+    "file": "assets/fa-solid-900-mxuxnBEa.ttf",
     "src": "public/admin/css/webfonts/fa-solid-900.ttf"
   },
   "public/admin/css/webfonts/fa-solid-900.woff": {
-    "file": "assets/fa-solid-900-BdRUpLXt.woff",
+    "file": "assets/fa-solid-900-DOXgCApm.woff",
     "src": "public/admin/css/webfonts/fa-solid-900.woff"
   },
   "public/admin/css/webfonts/fa-solid-900.woff2": {
@@ -249,15 +249,15 @@
     "src": "public/css/icomoon/fonts/icomoon.svg"
   },
   "public/css/icomoon/fonts/icomoon.ttf": {
-    "file": "assets/icomoon-SCEJmd6z.ttf",
-    "src": "public/css/icomoon/fonts/icomoon.ttf"
+    "file": "assets/icomoon-D3CA-bUq.ttf",
+    "src": "public/admin/css/fonts/icomoon.ttf"
   },
   "public/css/icomoon/fonts/icomoon.woff": {
-    "file": "assets/icomoon-H1dGgZwX.woff",
-    "src": "public/css/icomoon/fonts/icomoon.woff"
+    "file": "assets/icomoon-CVuOrFFb.woff",
+    "src": "public/admin/css/fonts/icomoon.woff"
   },
   "public/css/icomoon/style.css": {
-    "file": "assets/style-rwVwMArG.css",
+    "file": "assets/style-B4GeU4WI.css",
     "src": "public/css/icomoon/style.css",
     "isEntry": true
   },
@@ -372,28 +372,28 @@
     "isEntry": true
   },
   "public/summernote/font/summernote.eot": {
-    "file": "assets/summernote-DScJrmJ1.eot",
+    "file": "assets/summernote-jt9apK1s.eot",
     "src": "public/summernote/font/summernote.eot"
   },
   "public/summernote/font/summernote.ttf": {
-    "file": "assets/summernote-4XkBPIRA.ttf",
+    "file": "assets/summernote-BDPkqvsB.ttf",
     "src": "public/summernote/font/summernote.ttf"
   },
   "public/summernote/font/summernote.woff": {
-    "file": "assets/summernote-DEekNz6a.woff",
+    "file": "assets/summernote-MGhHcnpK.woff",
     "src": "public/summernote/font/summernote.woff"
   },
   "public/summernote/font/summernote.woff2": {
-    "file": "assets/summernote-PMqM9czq.woff2",
+    "file": "assets/summernote-tk6LuLER.woff2",
     "src": "public/summernote/font/summernote.woff2"
   },
   "public/summernote/summernote-lite.min.css": {
-    "file": "assets/summernote-lite-yeH8vNQl.css",
+    "file": "assets/summernote-lite-DlU-5CHD.css",
     "src": "public/summernote/summernote-lite.min.css",
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-CEUZ-lSc.css",
+    "file": "assets/app-DSs50aXH.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }
