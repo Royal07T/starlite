@@ -195,7 +195,7 @@
                             </div>
                         @endif
                     </div>
-                    @if(!empty($tutor?->profile?->intro_video))
+                    @if(!empty($tutor?->profile?->intro_video) && Storage::disk(getStorageDisk())->exists($tutor->profile->intro_video))
                         <div class="am-detailuser_video am-detailuser_video_main">
                             <video class="video-js" data-setup='{}' preload="auto" wire:key="profile-video-{{ $tutor->id }}"
                                 id="profile-video-{{ $tutor->id }}" width="320" height="240" controls>

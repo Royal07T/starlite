@@ -53,7 +53,7 @@
                                                 @endif
                                             </div>
                                         @endif
-                                        @if(!empty(pagesetting('section1_video')))
+                                        @if(!empty(pagesetting('section1_video')) && Storage::disk(getStorageDisk())->exists(pagesetting('section1_video')[0]['path']))
                                             <div class="am-card am-card-video" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="800">
                                                 <video class="video-js" data-setup='{}' preload="auto" id="vision-video" width="940" height="737" controls >
                                                     <source src="{{ url(Storage::url(pagesetting('section1_video')[0]['path'])) }}#t=0.1" type="video/mp4" >

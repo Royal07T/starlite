@@ -8,7 +8,7 @@
             </div>
             <div class="am-learning_video am-auth-video">
                 <div class="am-learning_video_info" wire:ignore>
-                    @if(!empty(setting('_general.auth_pages_video')))
+                    @if(!empty(setting('_general.auth_pages_video')[0]['path']) && Storage::disk(getStorageDisk())->exists(setting('_general.auth_pages_video')[0]['path']))
                         <video class="video-js" data-setup='{}' preload="auto" wire:key="auth-video" id="auth-video" width="320" height="240" controls >
                             <source src="{{ url(Storage::url(setting('_general.auth_pages_video')[0]['path'])) }}#t=0.1" wire:key="auth-video-src" type="video/mp4" >
                         </video>

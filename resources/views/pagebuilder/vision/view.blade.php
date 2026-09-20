@@ -11,7 +11,7 @@
             <div class="row">
                 @if(!empty(pagesetting('video')))
                     <div class="col-12 col-lg-6">
-                        @if(!empty(pagesetting('video')[0]['path']))
+                        @if(!empty(pagesetting('video')[0]['path']) && Storage::disk(getStorageDisk())->exists(pagesetting('video')[0]['path']))
                             <video class="video-js" data-setup='{}' preload="auto" id="vision-video" width="940" height="737" controls >
                                 <source src="{{ url(Storage::url(pagesetting('video')[0]['path'])) }}#t=0.1" wire:key="auth-video-src" type="video/mp4" >
                             </video>
