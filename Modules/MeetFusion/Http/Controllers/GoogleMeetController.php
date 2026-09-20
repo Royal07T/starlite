@@ -13,7 +13,7 @@ class GoogleMeetController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function authorize()
+    public function redirectToGoogle()
     {
         $authUrl = MeetFusion::google_meet()->getAuthUrl();
         return redirect()->away($authUrl);

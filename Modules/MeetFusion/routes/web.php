@@ -19,7 +19,7 @@ use Modules\MeetFusion\Http\Controllers\ApiSettingsController;
 // Google Meet routes
 Route::middleware(['web', 'auth', 'admin'])->group(function () {
     // OAuth routes
-    Route::get('google-meet/authorize', [GoogleMeetController::class, 'authorize'])->name('google-meet.authorize');
+    Route::get('google-meet/authorize', [GoogleMeetController::class, 'redirectToGoogle'])->name('google-meet.authorize');
     Route::get('google-meet/callback', [GoogleMeetController::class, 'callback'])->name('google-meet.callback');
     
     // API Settings routes
