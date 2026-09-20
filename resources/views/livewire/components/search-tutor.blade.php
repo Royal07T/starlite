@@ -41,7 +41,7 @@
                             <div class="am-tutorsearch_card" id="profile-{{ $tutor->id }}">
                                 <div class="am-tutorsearch_video">
                                     @if(!empty($tutor->profile->intro_video))
-                                        <video class="video-js" data-setup='{}' preload="auto" wire:key="profile-video-{{ $tutor->id }}" id="profile-video-{{ $tutor->id }}" width="320" height="240" controls >
+                                        <video class="video-js" preload="auto" wire:key="profile-video-{{ $tutor->id }}" id="profile-video-{{ $tutor->id }}" width="320" height="240" controls >
                                             <source src="{{ url(Storage::url($tutor->profile->intro_video)).'?key=profile-video'. $tutor->id }}#t=0.1" wire:key="profile-video-src-{{ $tutor->id }}" type="video/mp4" >
                                         </video>
                                     @endif
