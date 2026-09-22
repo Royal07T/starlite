@@ -1,13 +1,19 @@
-import sys
 import os
+import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import logging
 
 from routes.assistant import router as assistant_router
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
 
 app = FastAPI(
     title="Starlite AI Assistant",
@@ -22,8 +28,8 @@ app.add_middleware(
         "http://localhost:8000",
     ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 app.include_router(assistant_router)

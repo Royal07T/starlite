@@ -103,6 +103,7 @@ class WalletService
 
             if ($wallet->amount < $amount) {
                 Log::error('Insufficient funds', ['user_id' => $userId, 'amount' => $amount, 'wallet_amount' => $wallet->amount]);
+                throw new \Exception('Insufficient wallet balance');
             }
 
             $wallet->amount -= $amount;

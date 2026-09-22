@@ -292,13 +292,13 @@ class SiteController extends Controller
         $slot =  $bookingService->getSlotDetail($request->session_id);
 
         if (empty($slot)) {
-            return response()->json(['error' => true, 'message' =>  __('tutor.slot_not_available')], 200);
+            return response()->json(['error' => true, 'message' =>  __('tutor.slot_not_available')], 404);
         }
 
         $tutor = $slot->subjectGroupSubjects?->userSubjectGroup?->tutor;
 
         if (empty($tutor)) {
-            return response()->json(['error' => true, 'message' =>  __('tutor.slot_not_available')], 200);
+            return response()->json(['error' => true, 'message' =>  __('tutor.slot_not_available')], 404);
         }
 
         if (!isPaidSystem()) {
@@ -310,7 +310,7 @@ class SiteController extends Controller
         $slotBookings = (new BookingService())->getBookingSlot($request->session_id);
 
         if ($slotBookings->isNotEmpty()) {
-            return response()->json(['error' => true, 'message' => __('calendar.session_already_booked')], 200);
+            return response()->json(['error' => true, 'message' => __('calendar.session_already_booked')], 409);
         }
 
 
@@ -377,7 +377,7 @@ class SiteController extends Controller
                     ]);
                 }
             } else {
-                return response()->json(['error' => true, 'message' => __('tutor.not_available_slot')], 200);
+                return response()->json(['error' => true, 'message' => __('tutor.not_available_slot')], 400);
             }
         }
     }
@@ -407,6 +407,14 @@ class SiteController extends Controller
         $user = Auth::user();
         $userRole = getUserRole()['roleName'];
         $newRole = $userRole === 'tutor' ? 'student' : 'tutor';
+
+        if (!$user->hasRole($newRole)) {
+            return response()->json([
+                'success' => false,
+                'message' => "You do not have the '$newRole' role. Please contact support.",
+            ], 403);
+        }
+
         $newRoleObj = Role::where('name', $newRole)->first();
 
         if (!$newRoleObj) {
@@ -416,16 +424,10 @@ class SiteController extends Controller
             ], 404);
         }
 
-        if (!$user->hasRole($newRole)) {
-            $user->assignRole($newRole);
-        }
-
-        // Store default role if not already stored
         if (!Session::has('default_role_id' . $user->id)) {
             Session::put('default_role_id' . $user->id, $user->roles->first()->id);
         }
 
-        // Store active role
         Session::put('active_role_id' . $user->id, $newRoleObj->id);
 
         return response()->json([

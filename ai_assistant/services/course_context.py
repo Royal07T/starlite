@@ -1,5 +1,11 @@
+import logging
 from sqlalchemy.orm import Session
 from models import Course, Section, Curriculum, Faq, Enrollment
+
+logger = logging.getLogger("ai_assistant")
+
+MAX_ARTICLE_CHARS = 4000
+MAX_DESCRIPTION_CHARS = 1000
 
 
 def verify_enrollment(db: Session, student_id: int, course_id: int) -> bool:
@@ -17,21 +23,21 @@ def verify_enrollment(db: Session, student_id: int, course_id: int) -> bool:
 
 def get_course_context(
     db: Session, course_id: int, curriculum_id: int | None = None
-) -> dict:
+) -> dict | None:
     course = db.query(Course).filter(Course.id == course_id).first()
     if not course:
         return None
 
     context = {
         "course_title": course.title,
-        "course_description": course.description or "",
+        "course_description": (course.description or "")[:MAX_DESCRIPTION_CHARS],
         "learning_objectives": course.learning_objectives or [],
         "prerequisites": course.prerequisites or "",
         "sections": [],
         "faqs": [],
     }
 
-    for faq in course.faqs:
+    for faq in course.faqs[:10]:
         context["faqs"].append({"question": faq.question, "answer": faq.answer})
 
     if curriculum_id:
@@ -47,8 +53,8 @@ def get_course_context(
                         {
                             "id": target_curriculum.id,
                             "title": target_curriculum.title,
-                            "description": target_curriculum.description or "",
-                            "article_content": target_curriculum.article_content or "",
+                            "description": (target_curriculum.description or "")[:MAX_DESCRIPTION_CHARS],
+                            "article_content": (target_curriculum.article_content or "")[:MAX_ARTICLE_CHARS],
                             "type": target_curriculum.type,
                         }
                     ],
@@ -56,17 +62,17 @@ def get_course_context(
             )
             context["active_topic"] = target_curriculum.title
     else:
-        for section in course.sections:
+        for section in course.sections[:10]:
             section_data = {
                 "section_title": section.title,
                 "curriculums": [],
             }
-            for curr in section.curriculums:
+            for curr in section.curriculums[:20]:
                 section_data["curriculums"].append(
                     {
                         "id": curr.id,
                         "title": curr.title,
-                        "description": curr.description or "",
+                        "description": (curr.description or "")[:MAX_DESCRIPTION_CHARS],
                         "type": curr.type,
                     }
                 )
@@ -87,11 +93,11 @@ def build_system_prompt(context: dict) -> str:
     ]
 
     if context.get("learning_objectives"):
-        objectives = ", ".join(context["learning_objectives"])
+        objectives = ", ".join(context["learning_objectives"][:5])
         parts.append(f"LEARNING OBJECTIVES: {objectives}")
 
     if context.get("prerequisites"):
-        parts.append(f"PREREQUISITES: {context['prerequisites']}")
+        parts.append(f"PREREQUISITES: {context['prerequisites'][:500]}")
 
     if context.get("active_topic"):
         parts.append(f"\nThe student is currently viewing: {context['active_topic']}")
@@ -103,8 +109,7 @@ def build_system_prompt(context: dict) -> str:
             for curr in section["curriculums"]:
                 parts.append(f"  - {curr['title']} ({curr['type']})")
                 if curr.get("article_content"):
-                    content = curr["article_content"][:3000]
-                    parts.append(f"    Content: {content}")
+                    parts.append(f"    Content: {curr['article_content']}")
                 if curr.get("description"):
                     parts.append(f"    Description: {curr['description']}")
 
