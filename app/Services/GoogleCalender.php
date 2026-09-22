@@ -83,7 +83,7 @@ class GoogleCalender {
             ];
             return ['status' => Response::HTTP_OK, 'data' => $primaryCalendar];
         } catch (GoogleServiceException $ex) {
-            Log::info($ex);
+            Log::error('Failed to fetch primary Google Calendar', ['error' => $ex->getMessage(), 'trace' => $ex->getTraceAsString()]);
             return ['status' => $ex->getCode(), 'message' => $ex->getMessage()];
         }
     }
@@ -112,7 +112,7 @@ class GoogleCalender {
             }
             return ['status' => Response::HTTP_OK, 'data' => $updatedCalendar];
         } catch (GoogleServiceException $ex) {
-            Log::info($ex);
+            Log::error('Failed to update Google Calendar notification settings', ['error' => $ex->getMessage(), 'trace' => $ex->getTraceAsString()]);
             return ['status' => $ex->getCode(), 'message' => $ex->getMessage()];
         }
     }
@@ -150,7 +150,7 @@ class GoogleCalender {
             }
             return ['status' => Response::HTTP_BAD_REQUEST, 'message' => __('passwords.no_calendar')];
         } catch (Exception $ex) {
-            Log::info($ex);
+            Log::error('Failed to create Google Calendar event', ['error' => $ex->getMessage(), 'trace' => $ex->getTraceAsString()]);
             return ['status' => $ex->getCode(), 'message' => $ex->getMessage()];
         }
     }
@@ -172,7 +172,7 @@ class GoogleCalender {
             }
             return ['status' => Response::HTTP_BAD_REQUEST, 'message' => __('passwords.no_calendar')];
         } catch (Exception $ex) {
-            Log::info($ex);
+            Log::error('Failed to delete Google Calendar event', ['error' => $ex->getMessage(), 'trace' => $ex->getTraceAsString()]);
             return ['status' => $ex->getCode(), 'message' => $ex->getMessage()];
         }
     } 

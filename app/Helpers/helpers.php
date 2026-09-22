@@ -376,7 +376,7 @@ if (!function_exists('generatePassword')) {
         $password = '';
 
         for ($i = 0; $i < $length; $i++) {
-            $password .= $characters[rand(0, $charLength - 1)];
+            $password .= $characters[random_int(0, $charLength - 1)];
         }
 
         return $password;
@@ -465,12 +465,12 @@ if (! function_exists('getProfileImageURL')) {
     function getProfileImageURL($file, $image_dimension)
     {
         $file_url     = null;
-        $imageData  = !is_array($file) ? @unserialize($file) : $file;
+        $imageData  = !is_array($file) ? unserialize($file) : $file;
 
-        if ($imageData == 'b:0;' || $imageData !== false) {
-            $file_url           = !empty($imageData[$image_dimension]) ? $imageData[$image_dimension] : null;
-        } else {
+        if ($imageData === false && $file !== 'b:0;') {
             $file_url = $file;
+        } else {
+            $file_url           = !empty($imageData[$image_dimension]) ? $imageData[$image_dimension] : null;
         }
 
         return $file_url;
@@ -591,7 +591,6 @@ if (!function_exists('getTranslatedLanguages')) {
     {
         $languages_list = [];
         $languages = DB::table('languages')->get();
-        DB::disconnect();
 
         if (!empty($langCode)) {
             return Cache::rememberForever('getTranslatedLanguages-' . $langCode, function () use ($langCode, $languages) {

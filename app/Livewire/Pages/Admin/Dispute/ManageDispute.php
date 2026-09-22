@@ -166,7 +166,7 @@ class ManageDispute extends Component
             DB::commit();
         }catch(\Exception $ex){
             DB::rollBack();
-            Log::info($ex);
+            Log::error('Failed to process dispute refund', ['error' => $ex->getMessage(), 'trace' => $ex->getTraceAsString()]);
             Session::flash('rescheduled_msg', __('calendar.refunded_error'));
         }
     }
