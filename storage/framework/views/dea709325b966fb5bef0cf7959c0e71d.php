@@ -40,7 +40,7 @@ unset($__defined_vars); ?>
     }
 ?>
 
-<?php if($headerVariation == 'am-header_four'): ?>  
+<?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($headerVariation == 'am-header_four'): ?>  
     <header class="am-header_four">
         <div class="container">
             <div class="row">
@@ -81,8 +81,8 @@ unset($__defined_vars); ?>
                                 </label>
                             </div>
                             <ul id="tenavbar" class="collapse navbar-collapse">
-                                <?php if(!empty(getMenu('header'))): ?>
-                                    <?php $__currentLoopData = getMenu('header'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('header'))): ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('header'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -103,11 +103,11 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </ul>
                         </nav>
-                        <?php if(auth()->guard()->check()): ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->check()): ?>
                             <?php if (isset($component)) { $__componentOriginal52832d31110f84da973eba1608c59933 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal52832d31110f84da973eba1608c59933 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.user-menu','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -128,8 +128,8 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginal52832d31110f84da973eba1608c59933; ?>
 <?php unset($__componentOriginal52832d31110f84da973eba1608c59933); ?>
 <?php endif; ?>
-                        <?php endif; ?>
-                        <?php if(auth()->guard()->guest()): ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->guest()): ?>
                             <div class="am-loginbtns">
                                 <?php if (isset($component)) { $__componentOriginalf058f939673b28ed69913a9622e5fd75 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf058f939673b28ed69913a9622e5fd75 = $attributes; } ?>
@@ -172,11 +172,11 @@ unset($__defined_vars); ?>
 <?php unset($__componentOriginalfa4bf5cb1572938e537fa690884d8b6f); ?>
 <?php endif; ?>
                                 <a href="<?php echo e(route('login')); ?>" class="am-white-btn"><?php echo e(__('general.login')); ?></a>
-                                <?php if(setting('_lernen.allow_register') !== 'no'): ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(setting('_lernen.allow_register') !== 'no'): ?>
                                     <a href="<?php echo e(route('register')); ?>" class="am-btn"><?php echo e(__('general.get_started')); ?></a>
-                                <?php endif; ?>
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </div>
-                        <?php endif; ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -211,9 +211,9 @@ unset($__defined_vars); ?>
 <?php endif; ?>
                         </strong>
                         <div class="am-loginbtns">
-                            <?php if(auth()->guard()->guest()): ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->guest()): ?>
                                 <a href="<?php echo e(route('login')); ?>" class="am-btn"><?php echo e(__('general.login')); ?></a>
-                            <?php endif; ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             <button type="button" class="navbar-toggler am-menubtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><?php echo e(__('general.menu')); ?> 
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
@@ -221,7 +221,7 @@ unset($__defined_vars); ?>
                                     </svg>
                                 </span>
                             </button>
-                            <?php if(auth()->guard()->check()): ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->check()): ?>
                                 <?php if (isset($component)) { $__componentOriginal52832d31110f84da973eba1608c59933 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal52832d31110f84da973eba1608c59933 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.user-menu','data' => ['multiLang' => false]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -242,7 +242,7 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginal52832d31110f84da973eba1608c59933; ?>
 <?php unset($__componentOriginal52832d31110f84da973eba1608c59933); ?>
 <?php endif; ?>
-                            <?php endif; ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             <div class="am-sidebar-menu offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                                 <div class="offcanvas-header">
                                     <strong class="am-logo">
@@ -258,8 +258,8 @@ unset($__defined_vars); ?>
                                 </div>
                                 <div class="offcanvas-body">
                                     <ul class="navbar-nav flex-grow-1">
-                                        <?php if(!empty(getMenu('header'))): ?>
-                                            <?php $__currentLoopData = getMenu('header'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('header'))): ?>
+                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('header'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item,'enableToggle' => true]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -280,9 +280,9 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php endif; ?>
-                                        <?php if(auth()->guard()->guest()): ?>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->guest()): ?>
                                             <?php if (isset($component)) { $__componentOriginalf058f939673b28ed69913a9622e5fd75 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf058f939673b28ed69913a9622e5fd75 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.multi-currency','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -323,16 +323,16 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalfa4bf5cb1572938e537fa690884d8b6f; ?>
 <?php unset($__componentOriginalfa4bf5cb1572938e537fa690884d8b6f); ?>
 <?php endif; ?>
-                                        <?php endif; ?>
+                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                     </ul>
-                                    <?php if(auth()->guard()->guest()): ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->guest()): ?>
                                         <div class="am-btns">
                                             <a href="<?php echo e(route('login')); ?>" class="am-btn am-joinnow-btn"><?php echo e(__('general.login')); ?></a>
-                                            <?php if(setting('_lernen.allow_register') !== 'no'): ?>
+                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(setting('_lernen.allow_register') !== 'no'): ?>
                                                 <a href="<?php echo e(route('register')); ?>" class="am-btn"><?php echo e(__('general.get_started')); ?></a>
-                                            <?php endif; ?>
+                                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                         </div>
-                                    <?php endif; ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -344,7 +344,7 @@ unset($__defined_vars); ?>
 <?php else: ?>
     <header class="<?php echo \Illuminate\Support\Arr::toCssClasses([
         'am-header_two', $headerVariation,
-        'am-header-bg' => (empty($page) && !in_array(request()->route()->getName(), ['find-tutors','tutor-detail'])) || in_array($page?->slug, ['about-us', 'how-it-works', 'faq', 'terms-condition', 'privacy-policy'])
+        'am-header-bg' => (empty($page) && !in_array(request()->route()->getName(), ['find-tutors','tutor-detail'])) || in_array($page?->slug, ['about-us', 'how-it-works', 'terms-condition', 'privacy-policy'])
         ]); ?>">
         <div class="container-fluid">
             <div class="row">
@@ -384,8 +384,8 @@ unset($__defined_vars); ?>
                                 </label>
                             </div>
                             <ul id="tenavbar" class="collapse navbar-collapse">
-                            <?php if(!empty(getMenu('header'))): ?>
-                                <?php $__currentLoopData = getMenu('header'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('header'))): ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('header'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -406,11 +406,11 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </ul>
                         </nav>
-                        <?php if(auth()->guard()->check()): ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->check()): ?>
                         <?php if (isset($component)) { $__componentOriginal52832d31110f84da973eba1608c59933 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal52832d31110f84da973eba1608c59933 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.user-menu','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -431,8 +431,8 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginal52832d31110f84da973eba1608c59933; ?>
 <?php unset($__componentOriginal52832d31110f84da973eba1608c59933); ?>
 <?php endif; ?>
-                        <?php endif; ?>
-                        <?php if(auth()->guard()->guest()): ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->guest()): ?>
                             <div class="am-loginbtns">
                                 <?php if (isset($component)) { $__componentOriginalf058f939673b28ed69913a9622e5fd75 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf058f939673b28ed69913a9622e5fd75 = $attributes; } ?>
@@ -475,14 +475,14 @@ unset($__defined_vars); ?>
 <?php unset($__componentOriginalfa4bf5cb1572938e537fa690884d8b6f); ?>
 <?php endif; ?>
                                 <a href="<?php echo e(route('login')); ?>" class="am-btn"><?php echo e(__('general.login')); ?></a>
-                                <?php if(setting('_lernen.allow_register') !== 'no'): ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(setting('_lernen.allow_register') !== 'no'): ?>
                                     <a href="<?php echo e(route('register')); ?>" class="am-white-btn"><?php echo e(__('general.get_started')); ?></a>
-                                <?php endif; ?>
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </div>
-                        <?php endif; ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-<?php endif; ?><?php /**PATH /home/royal-t/starlite/starlite/resources/views/components/front/header.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?><?php /**PATH /home/royal-t/starlite/starlite/resources/views/components/front/header.blade.php ENDPATH**/ ?>

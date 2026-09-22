@@ -9,11 +9,11 @@
             </div>
             <div class="am-learning_video am-auth-video">
                 <div class="am-learning_video_info" wire:ignore>
-                    <!--[if BLOCK]><![endif]--><?php if(!empty(setting('_general.auth_pages_video')[0]['path']) && Storage::disk(getStorageDisk())->exists(setting('_general.auth_pages_video')[0]['path'])): ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_general.auth_pages_video')[0]['path']) && Storage::disk(getStorageDisk())->exists(setting('_general.auth_pages_video')[0]['path'])): ?>
                         <video class="video-js" preload="auto" wire:key="auth-video" id="auth-video" width="320" height="240" controls >
                             <source src="<?php echo e(url(Storage::url(setting('_general.auth_pages_video')[0]['path']))); ?>#t=0.1" wire:key="auth-video-src" type="video/mp4" >
                         </video>
-                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
                 <div class="am-learning_video_tag">
                     <div class="am-learning_video_tag_talent">
@@ -50,16 +50,16 @@
                     </div>
                     <p><?php echo e(__('auth.auth_pages_left_desc')); ?></p>
                 </div>
-                <!--[if BLOCK]><![endif]--><?php if(!empty(setting('_general.auth_pages_image_1'))): ?>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_general.auth_pages_image_1'))): ?>
                     <figure class="am-learning_video_tutors-img">
                         <img src="<?php echo e(url(Storage::url(setting('_general.auth_pages_image_1')[0]['path']))); ?>" alt="image">
                     </figure>
-                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
-                <!--[if BLOCK]><![endif]--><?php if(!empty(setting('_general.auth_pages_image_2'))): ?>
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_general.auth_pages_image_2'))): ?>
                     <figure class="am-learning_video_talents-img">
                         <img src="<?php echo e(url(Storage::url(setting('_general.auth_pages_image_2')[0]['path']))); ?>" alt="image">
                     </figure>
-                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
         </div>
     </div>

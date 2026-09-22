@@ -24,9 +24,9 @@
             'public/js/main.js',
         ]); ?>
         <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/main.css')); ?>">
-        <?php if( !empty(setting('_general.enable_rtl')) || !empty(session()->get('rtl')) ): ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty(setting('_general.enable_rtl')) || !empty(session()->get('rtl')) ): ?>
             <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/rtl.css')); ?>">
-        <?php endif; ?>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
         <?php if (isset($component)) { $__componentOriginal82e3f864bb766fbb95cb0a10b750823c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal82e3f864bb766fbb95cb0a10b750823c = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.favicon','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -47,9 +47,9 @@
 <?php $component = $__componentOriginal82e3f864bb766fbb95cb0a10b750823c; ?>
 <?php unset($__componentOriginal82e3f864bb766fbb95cb0a10b750823c); ?>
 <?php endif; ?>
-        <?php if( !empty(setting('_scripts_styles.custom_styles')) ): ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty(setting('_scripts_styles.custom_styles')) ): ?>
             <style><?php echo html_entity_decode(setting('_scripts_styles.custom_styles')); ?></style>
-        <?php endif; ?>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     </head>
     <body class="font-sans text-gray-900 antialiased <?php if( !empty(setting('_general.enable_rtl')) || !empty(session()->get('rtl')) ): ?> am-rtl <?php endif; ?>">
         <main>
@@ -79,9 +79,9 @@
         <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
         <script defer src="<?php echo e(asset('js/select2.min.js')); ?>"></script>
         <?php echo $__env->yieldPushContent('scripts'); ?>
-        <?php if( !empty(setting('_scripts_styles.footer_scripts')) ): ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty(setting('_scripts_styles.footer_scripts')) ): ?>
             <?php echo setting('_scripts_styles.footer_scripts'); ?>
 
-        <?php endif; ?>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     </body>
 </html><?php /**PATH /home/royal-t/starlite/starlite/resources/views/layouts/guest.blade.php ENDPATH**/ ?>

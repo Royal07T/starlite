@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <?php if(!empty(pagesetting('pre_heading')) || !empty(pagesetting('heading')) || !empty(pagesetting('paragraph')) || !empty(pagesetting('feedback_repeater'))): ?>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(pagesetting('pre_heading')) || !empty(pagesetting('heading')) || !empty(pagesetting('paragraph')) || !empty(pagesetting('feedback_repeater'))): ?>
                     <div class="am-feedback-two_wrap">
-                        <?php if(!empty(pagesetting('pre_heading')) || !empty(pagesetting('heading')) || !empty(pagesetting('paragraph'))): ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(pagesetting('pre_heading')) || !empty(pagesetting('heading')) || !empty(pagesetting('paragraph'))): ?>
                             <div class="am-section_title am-section_title_center <?php echo e(pagesetting('section_title_variation')); ?>">
-                                <?php if(!empty(pagesetting('pre_heading'))): ?> 
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(pagesetting('pre_heading'))): ?> 
                                     <span 
                                         <?php if((!empty(pagesetting('pre_heading_text_color')) && pagesetting('pre_heading_text_color') !== 'rgba(0,0,0,0)') || (!empty(pagesetting('pre_heading_bg_color')) && pagesetting('pre_heading_bg_color') !== 'rgba(0,0,0,0)')): ?>
                                             style="
@@ -21,79 +21,79 @@
                                         <?php echo e(pagesetting('pre_heading')); ?>
 
                                     </span> 
-                                <?php endif; ?> 
-                                <?php if(!empty(pagesetting('heading'))): ?> <h2><?php echo pagesetting('heading'); ?></h2> <?php endif; ?>
-                                <?php if(!empty(pagesetting('paragraph'))): ?> <p><?php echo pagesetting('paragraph'); ?></p> <?php endif; ?>
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?> 
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(pagesetting('heading'))): ?> <h2><?php echo pagesetting('heading'); ?></h2> <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(pagesetting('paragraph'))): ?> <p><?php echo pagesetting('paragraph'); ?></p> <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </div>
-                        <?php endif; ?>
-                        <?php if(pagesetting('enable_slider') == 'yes'): ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(pagesetting('enable_slider') == 'yes'): ?>
                         <div class="am-testimonial-section" data-aos="fade-up"  data-aos-duration="1000" data-aos-easing="ease">
                             <div class="splide" id="testimonial-slider">
                                 <div class="splide__track">
-                        <?php endif; ?>
-                        <?php if(!empty(pagesetting('feedback_repeater'))): ?> 
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(pagesetting('feedback_repeater'))): ?> 
                             <ul class="am-feedback_content_list <?php echo e(pagesetting('enable_slider') == 'yes' ? 'splide__list' : ''); ?>">
-                                <?php $__currentLoopData = pagesetting('feedback_repeater'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $option): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = pagesetting('feedback_repeater'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $option): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <li class="<?php echo e(pagesetting('enable_slider') == 'yes' ? 'splide__slide' : ''); ?>" data-aos="fade-up" data-aos-duration="200" data-aos-easing="ease">
-                                        <?php if(pagesetting('enable_slider') == 'yes'): ?><div class="am-testimonial-card"><?php endif; ?>
-                                        <?php if(!empty($option['feedback_paragraph']) 
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(pagesetting('enable_slider') == 'yes'): ?><div class="am-testimonial-card"><?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['feedback_paragraph']) 
                                             || !empty($option['tutor_rating']) 
                                             || !empty($option['tutor_image']) 
                                             || !empty($option['tutor_name']) 
                                             || !empty($option['tutor_tagline']) 
                                             || !empty($option['student_image'])): ?>
                                             <div class="am-feedback_content_list_info">
-                                                <?php if(!empty($option['feedback_paragraph'])): ?>
+                                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['feedback_paragraph'])): ?>
                                                     <p><?php echo $option['feedback_paragraph']; ?></p>
-                                                <?php endif; ?>
-                                                <?php if(!empty($option['tutor_rating'])): ?>
+                                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['tutor_rating'])): ?>
                                                     <div class="am-feedback_content_list_stars">
                                                         <?php
                                                             $rating = $option['tutor_rating']; 
                                                         ?>
-                                                        <?php if($rating): ?>
-                                                            <?php for($i = 1; $i <= 5; $i++): ?>
-                                                                <?php if($i <= $rating): ?>
+                                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($rating): ?>
+                                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 1; $i <= 5; $i++): ?>
+                                                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($i <= $rating): ?>
                                                                     <i class="am-icon-star-filled"></i>
                                                                 <?php else: ?>
                                                                     <i class="am-icon-star-filled am-icon-start-empty"></i>
-                                                                <?php endif; ?>
-                                                            <?php endfor; ?>
+                                                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                                            <?php endfor; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                                         <?php elseif(empty($rating)): ?>
-                                                            <?php for($i = 1; $i <= 5; $i++): ?>
+                                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 1; $i <= 5; $i++): ?>
                                                                 <i class="am-icon-start-empty"></i>
-                                                            <?php endfor; ?>
-                                                        <?php endif; ?>
+                                                            <?php endfor; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                                     </div>
-                                                <?php endif; ?>
-                                                <?php if(!empty($option['feedback_paragraph']) 
+                                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['feedback_paragraph']) 
                                                     || !empty($option['tutor_image']) 
                                                     || !empty($option['tutor_name']) 
                                                     || !empty($option['tutor_tagline']) 
                                                     || !empty($option['student_image'])): ?>
                                                     <div class="am-feedback_content_list_info_prof"> 
-                                                        <?php if(!empty($option['tutor_image'])): ?>
+                                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['tutor_image'])): ?>
                                                             <figure>
-                                                                <?php if(!empty($option['tutor_image'][0]['path'])): ?>
+                                                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['tutor_image'][0]['path'])): ?>
                                                                     <img src="<?php echo e(url(Storage::url($option['tutor_image'][0]['path']))); ?>" alt="Profile image">
-                                                                <?php endif; ?>
+                                                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                                             </figure>
-                                                        <?php endif; ?>
+                                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                                         <div>
-                                                            <?php if(!empty($option['tutor_name'])): ?> <h3><?php echo $option['tutor_name']; ?></h3> <?php endif; ?>
-                                                            <?php if(!empty($option['tutor_tagline'])): ?> <span><?php echo $option['tutor_tagline']; ?></span> <?php endif; ?>
+                                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['tutor_name'])): ?> <h3><?php echo $option['tutor_name']; ?></h3> <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['tutor_tagline'])): ?> <span><?php echo $option['tutor_tagline']; ?></span> <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                                         </div>
-                                                        <?php if(!empty($option['student_image'])): ?>
-                                                            <?php if(!empty($option['student_image'][0]['path'])): ?>
+                                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['student_image'])): ?>
+                                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['student_image'][0]['path'])): ?>
                                                                 <span class="am-rating-company">
-                                                                    <?php if(!empty($option['student_image'][0]['path'])): ?>
+                                                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($option['student_image'][0]['path'])): ?>
                                                                         <img src="<?php echo e(url(Storage::url($option['student_image'][0]['path']))); ?>" alt="Profile image">
-                                                                    <?php endif; ?>      
+                                                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>      
                                                                 </span>
-                                                            <?php endif; ?> 
-                                                        <?php endif; ?>
+                                                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?> 
+                                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                                     </div>
-                                                <?php endif; ?>
+                                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                                 <div class="am-feedbackicon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <g opacity="0.2">
@@ -102,19 +102,19 @@
                                                     </svg>
                                                 </div>
                                             </div>
-                                        <?php endif; ?>
-                                        <?php if(pagesetting('enable_slider') == 'yes'): ?></div><?php endif; ?>
+                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(pagesetting('enable_slider') == 'yes'): ?></div><?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                     </li>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </ul>
-                        <?php endif; ?>
-                        <?php if(pagesetting('enable_slider') == 'yes'): ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(pagesetting('enable_slider') == 'yes'): ?>
                                     </div>
                                 </div>
                             </div>
-                        <?php endif; ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
-                <?php endif; ?>
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
         </div>
     </div>
@@ -124,7 +124,7 @@
     <?php echo app('Illuminate\Foundation\Vite')(['public/css/flags.css']); ?>
 <?php $__env->stopPush(); ?>
 
-<?php if (! $__env->hasRenderedOnce('2a343e4d-64e0-4624-b48e-e5e517c55f09')): $__env->markAsRenderedOnce('2a343e4d-64e0-4624-b48e-e5e517c55f09');
+<?php if (! $__env->hasRenderedOnce('5c3a62d0-69b3-415e-95be-5aaea253aa1a')): $__env->markAsRenderedOnce('5c3a62d0-69b3-415e-95be-5aaea253aa1a');
 $__env->startPush('scripts'); ?>
     <script src="<?php echo e(asset('js/splide.min.js')); ?>"></script>
     <script>

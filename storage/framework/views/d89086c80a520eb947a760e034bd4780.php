@@ -27,11 +27,11 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>">
                     <textarea placeholder="<?php echo e(__('tutor.type_message')); ?>" x-model="message" x-on:input="updateCharLeft"></textarea>
-                    <!--[if BLOCK]><![endif]--><?php if(!empty($threadId)): ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($threadId)): ?>
                         <span><?php echo e(__('general.char_left')); ?> 500</span>
                     <?php else: ?>
                         <span x-text="' <?php echo e(__('general.char_left')); ?>' + charLeft"></span>
-                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     <?php if (isset($component)) { $__componentOriginalf94ed9c5393ef72725d159fe01139746 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf94ed9c5393ef72725d159fe01139746 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input-error','data' => ['fieldName' => 'message']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -55,14 +55,14 @@ unset($__errorArgs, $__bag); ?>">
                 </div>
                 <div class="am-sendmassage-modal_btns" wire:key="buttons-<?php echo e($tutor?->id ?? ''); ?>">
                     <a href="javascript:;" class="am-btn send-message-btn" wire:click="sendMessage" wire:loading.class="am-btn_disable"><?php echo e(__('tutor.send_message')); ?></a>
-                    <!--[if BLOCK]><![endif]--><?php if(!empty($threadId)): ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($threadId)): ?>
                         <a href="<?php echo e(route('laraguppy.messenger', ['thread_id' => $threadId ])); ?>"  class="am-openchat am-custom-tooltip">
                             <span class="am-tooltip-text">
                                 <span><?php echo e(__('general.open_chat')); ?></span>
                             </span>
                             <i class="am-icon-external-link-02"></i>
                         </a>
-                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
             </div>
         </div>

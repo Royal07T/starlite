@@ -28,15 +28,15 @@ foreach ($attributes->all() as $__key => $__value) {
 
 unset($__defined_vars); ?>
 
-<?php if(!empty($og_tags)): ?>
-    <?php $__currentLoopData = $og_tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <?php if(str_starts_with($key, 'twitter:')): ?>
+<?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($og_tags)): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $og_tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(str_starts_with($key, 'twitter:')): ?>
             <meta name="<?php echo e($key); ?>" content="<?php echo e($value); ?>">
         <?php else: ?>
             <meta property="<?php echo e($key); ?>" content="<?php echo e($value); ?>">
-        <?php endif; ?>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<?php endif; ?>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
 <?php
     $siteTitle = setting('_general.site_name');
@@ -48,8 +48,8 @@ unset($__defined_vars); ?>
     $customSeoData = collect($seoSettings['seo_settings'] ?? [])->firstWhere('page_id', $routeName);
 ?>
 
-<?php if( !empty($page->title) || !empty($seoData['seo_title']) || !empty($customSeoData['seo_title']) ): ?>
-    <?php if(!empty($seoData['seo_title'])): ?>
+<?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty($page->title) || !empty($seoData['seo_title']) || !empty($customSeoData['seo_title']) ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($seoData['seo_title'])): ?>
         <title><?php echo $seoData['seo_title']; ?></title>
         <meta property="og:title" content="<?php echo $seoData['seo_title']; ?>">
         <meta property="twitter:title" content="<?php echo $seoData['seo_title']; ?>">
@@ -61,9 +61,9 @@ unset($__defined_vars); ?>
         <title><?php echo $page->title; ?></title>
         <meta property="og:title" content="<?php echo $page->title; ?>">
         <meta property="twitter:title" content="<?php echo $page->title; ?>">
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 <?php elseif( !empty($pageTitle) || !empty($seoData['seo_title']) || !empty($customSeoData['seo_title']) ): ?>
-    <?php if(!empty($seoData['seo_title'])): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($seoData['seo_title'])): ?>
         <title><?php echo e($siteTitle); ?> | <?php echo $seoData['seo_title']; ?></title>
         <meta property="og:title" content="<?php echo $seoData['seo_title']; ?>">
         <meta property="twitter:title" content="<?php echo $seoData['seo_title']; ?>">
@@ -75,14 +75,14 @@ unset($__defined_vars); ?>
         <title><?php echo e($siteTitle); ?> | <?php echo $pageTitle; ?></title>
         <meta property="og:title" content="<?php echo $pageTitle; ?>">
         <meta property="twitter:title" content="<?php echo $pageTitle; ?>">
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 <?php else: ?>
     <title><?php echo e($siteTitle); ?> | <?php echo e(__('tutor.tutors_tutors')); ?></title>
     <meta property="og:title" content="<?php echo e(__('tutor.tutors_tutors')); ?>">
     <meta property="twitter:title" content="<?php echo e(__('tutor.tutors_tutors')); ?>">
-<?php endif; ?>
-<?php if( !empty($pageDescription) || !empty($seoData['seo_description']) || !empty($customSeoData['seo_description']) ): ?>
-    <?php if(!empty($seoData['seo_description'])): ?>
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+<?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty($pageDescription) || !empty($seoData['seo_description']) || !empty($customSeoData['seo_description']) ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($seoData['seo_description'])): ?>
         <meta name="description" content="<?php echo e(Str::limit(strip_tags($seoData['seo_description']), 160)); ?>">
         <meta property="og:description" content="<?php echo e(Str::limit(strip_tags($seoData['seo_description']), 160)); ?>">
         <meta property="twitter:description" content="<?php echo e(Str::limit(strip_tags($seoData['seo_description']), 160)); ?>">
@@ -94,13 +94,13 @@ unset($__defined_vars); ?>
         <meta name="description" content="<?php echo e(Str::limit(strip_tags($pageDescription), 160)); ?>">
         <meta property="og:description" content="<?php echo e(Str::limit(strip_tags($pageDescription), 160)); ?>">
         <meta property="twitter:description" content="<?php echo e(Str::limit(strip_tags($pageDescription), 160)); ?>">
-    <?php endif; ?>
-<?php endif; ?>
-<?php if( !empty($metaImage)): ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+<?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty($metaImage)): ?>
     <link rel="image_src" href="<?php echo e(asset($metaImage)); ?>" />
-<?php endif; ?>
-<?php if( !empty($pageKeywords) || !empty($seoData['seo_keywords']) || !empty($customSeoData['seo_keywords']) ): ?>
-    <?php if(!empty($seoData['seo_keywords'])): ?>
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+<?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty($pageKeywords) || !empty($seoData['seo_keywords']) || !empty($customSeoData['seo_keywords']) ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($seoData['seo_keywords'])): ?>
         <meta name="keywords" content="<?php echo e($seoData['seo_keywords']); ?>" />
         <meta property="og:keywords" content="<?php echo e($seoData['seo_keywords']); ?>" />
         <meta property="twitter:keywords" content="<?php echo e($seoData['seo_keywords']); ?>" />
@@ -112,6 +112,6 @@ unset($__defined_vars); ?>
         <meta name="keywords" content="<?php echo e($pageKeywords); ?>" />
         <meta property="og:keywords" content="<?php echo e($pageKeywords); ?>" />
         <meta property="twitter:keywords" content="<?php echo e($pageKeywords); ?>" />
-    <?php endif; ?>
-<?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 <?php /**PATH /home/royal-t/starlite/starlite/resources/views/components/meta-content.blade.php ENDPATH**/ ?>

@@ -40,7 +40,7 @@ unset($__defined_vars); ?>
     }
 ?>
 
-<?php if($footerVariation != 'am-footer_three'): ?>
+<?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($footerVariation != 'am-footer_three'): ?>
     <footer class="<?php echo \Illuminate\Support\Arr::toCssClasses(['am-footer', $footerVariation]); ?>">
         <div class="container">
             <div class="row">
@@ -69,33 +69,33 @@ unset($__defined_vars); ?>
 <?php unset($__componentOriginal8892e718f3d0d7a916180885c6f012e7); ?>
 <?php endif; ?>
                             </strong>
-                            <?php if(!empty(setting('_front_page_settings.footer_paragraph'))): ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.footer_paragraph'))): ?>
                                 <p><?php echo setting('_front_page_settings.footer_paragraph'); ?></p>
-                            <?php endif; ?>
-                            <?php if(
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(
                                 !empty(setting('_front_page_settings.footer_contact')) ||
                                 !empty(setting('_front_page_settings.footer_email')) ||
                                 !empty(setting('_front_page_settings.footer_address'))
                             ): ?>
                                 <ul class="am-footer_contact">
-                                    <?php if(!empty(setting('_front_page_settings.footer_contact'))): ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.footer_contact'))): ?>
                                         <li>
                                             <a href="tel:<?php echo setting('_front_page_settings.footer_contact'); ?>"><i class="am-icon-audio-03"></i><?php echo setting('_front_page_settings.footer_contact'); ?></a>
                                         </li>
-                                    <?php endif; ?>
-                                    <?php if(!empty(setting('_front_page_settings.footer_email'))): ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.footer_email'))): ?>
                                         <li>
                                             <a href="mailto:hello@gmail.com"><i class="am-icon-email-01"></i><?php echo setting('_front_page_settings.footer_email'); ?></a>
                                         </li>
-                                    <?php endif; ?>
-                                    <?php if(!empty(setting('_front_page_settings.footer_address'))): ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.footer_address'))): ?>
                                         <li>
                                             <address><i class="am-icon-location"></i><?php echo setting('_front_page_settings.footer_address'); ?></address>
                                         </li>
-                                    <?php endif; ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </ul>
-                            <?php endif; ?>
-                            <?php if(
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(
                                 !empty( setting('_general.fb_link')) ||
                                 !empty( setting('_general.insta_link')) ||
                                 !empty(setting('_general.linkedin_link')) ||
@@ -103,44 +103,44 @@ unset($__defined_vars); ?>
                                 !empty(setting('_general.tiktok_link'))
                                 ): ?>
                                 <ul class="am-socialmedia">
-                                    <?php if( !empty( setting('_general.fb_link'))): ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty( setting('_general.fb_link'))): ?>
                                         <li>
                                             <a href="<?php echo e(setting('_general.fb_link')); ?>">
                                                 <i class="am-icon-facebook"></i>
                                             </a>
                                         </li>
-                                    <?php endif; ?>
-                                    <?php if( !empty( setting('_general.insta_link'))): ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty( setting('_general.insta_link'))): ?>
                                         <li>
                                             <a href="<?php echo e(setting('_general.insta_link')); ?>">
                                                 <i class="am-icon-instagram"></i>
                                             </a>
                                         </li>
-                                    <?php endif; ?>
-                                    <?php if( !empty( setting('_general.linkedin_link'))): ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty( setting('_general.linkedin_link'))): ?>
                                         <li>
                                             <a href="<?php echo e(setting('_general.linkedin_link')); ?>">
                                                 <i class="am-icon-linkedin"></i>
                                             </a>
                                         </li>
-                                    <?php endif; ?>
-                                    <?php if( !empty( setting('_general.yt_link'))): ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty( setting('_general.yt_link'))): ?>
                                         <li>
                                             <a href="<?php echo e(setting('_general.yt_link')); ?>">
                                                 <i class="am-icon-youtube"></i>
                                             </a>
                                         </li>
-                                    <?php endif; ?>
-                                    <?php if( !empty( setting('_general.tiktok_link'))): ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty( setting('_general.tiktok_link'))): ?>
                                         <li>
                                             <a href="<?php echo e(setting('_general.tiktok_link')); ?>">
                                                 <i class="am-icon-tiktok"></i>
                                             </a>
                                         </li>
-                                    <?php endif; ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </ul>
-                            <?php endif; ?>
-                             <?php if(!empty(setting('_front_page_settings.footer_button_text'))): ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.footer_button_text'))): ?>
                                 <a 
                                     href="<?php echo e(!empty(setting('_front_page_settings.footer_button_url') && setting('_lernen.allow_register') !== 'no') ? url(setting('_front_page_settings.footer_button_url'))  : '#'); ?>"
                                     class="am-btn"
@@ -148,17 +148,17 @@ unset($__defined_vars); ?>
                                     <?php echo e(setting('_front_page_settings.footer_button_text')); ?>
 
                                 </a>
-                            <?php endif; ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                         <div class="am-fnavigation_wrap">
-                            <?php if(getMenu('footer', 'Footer menu 1')->isNotEmpty()): ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(getMenu('footer', 'Footer menu 1')->isNotEmpty()): ?>
                                 <nav class="am-fnavigation">
                                     <div class="am-fnavigation_title">
                                         <h3><?php echo e(setting('_front_page_settings.quick_links_heading')); ?></h3>
                                     </div>
-                                    <?php if(!empty(getMenu('footer', 'Footer menu 1'))): ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('footer', 'Footer menu 1'))): ?>
                                     <ul>
-                                        <?php $__currentLoopData = getMenu('footer', 'Footer menu 1'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('footer', 'Footer menu 1'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -179,19 +179,19 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                     </ul>
-                                    <?php endif; ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </nav>
-                            <?php endif; ?>
-                            <?php if(getMenu('footer', 'Footer menu 2')->isNotEmpty()): ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(getMenu('footer', 'Footer menu 2')->isNotEmpty()): ?>
                                 <nav class="am-fnavigation">
                                      <div class="am-fnavigation_title">
                                         <h3><?php echo e(setting('_front_page_settings.tutors_by_country_heading')); ?></h3>
                                     </div>
-                                    <?php if(!empty(getMenu('footer', 'Footer menu 2'))): ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('footer', 'Footer menu 2'))): ?>
                                     <ul>
-                                        <?php $__currentLoopData = getMenu('footer', 'Footer menu 2'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('footer', 'Footer menu 2'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -212,19 +212,19 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?> 
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                     </ul>
-                                    <?php endif; ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </nav>
-                            <?php endif; ?>
-                            <?php if(getMenu('footer', 'Footer menu 3')->isNotEmpty()): ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(getMenu('footer', 'Footer menu 3')->isNotEmpty()): ?>
                                 <nav class="am-fnavigation">
                                    <div class="am-fnavigation_title">
                                         <h3><?php echo e(setting('_front_page_settings.our_services_heading')); ?></h3>
                                     </div>
                                     <ul>
-                                        <?php if(!empty(getMenu('footer', 'Footer menu 3'))): ?>
-                                            <?php $__currentLoopData = getMenu('footer', 'Footer menu 3'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('footer', 'Footer menu 3'))): ?>
+                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('footer', 'Footer menu 3'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -245,19 +245,19 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?> 
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php endif; ?>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                     </ul>
                                 </nav>
-                            <?php endif; ?>
-                            <?php if(getMenu('footer', 'Footer menu 4')->isNotEmpty()): ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(getMenu('footer', 'Footer menu 4')->isNotEmpty()): ?>
                                 <nav class="am-fnavigation">
                                    <div class="am-fnavigation_title">
                                         <h3><?php echo e(setting('_front_page_settings.one_on_one_sessions_heading')); ?></h3>
                                     </div>
                                     <ul>
-                                        <?php if(!empty(getMenu('footer', 'Footer menu 4'))): ?>
-                                            <?php $__currentLoopData = getMenu('footer', 'Footer menu 4'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('footer', 'Footer menu 4'))): ?>
+                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('footer', 'Footer menu 4'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -278,19 +278,19 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?> 
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php endif; ?>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                     </ul>
                                 </nav>
-                            <?php endif; ?>
-                            <?php if(getMenu('footer', 'Footer menu 5')->isNotEmpty()): ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(getMenu('footer', 'Footer menu 5')->isNotEmpty()): ?>
                                 <nav class="am-fnavigation">
                                    <div class="am-fnavigation_title">
                                         <h3><?php echo e(setting('_front_page_settings.group_sessions_heading')); ?></h3>
                                     </div>
                                     <ul>
-                                        <?php if(!empty(getMenu('footer', 'Footer menu 5'))): ?>
-                                            <?php $__currentLoopData = getMenu('footer', 'Footer menu 5'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('footer', 'Footer menu 5'))): ?>
+                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('footer', 'Footer menu 5'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -311,43 +311,43 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?> 
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php endif; ?>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                     </ul>
                                 </nav>
-                            <?php endif; ?>
-                            <?php if(!empty( setting('_front_page_settings.app_section_heading')) ||
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty( setting('_front_page_settings.app_section_heading')) ||
                                 !empty(setting('_front_page_settings.app_section_description')) ||
                                 !empty(setting('_general.android_app_logo')) || !empty(setting('_general.ios_app_logo'))
                                 ): ?>
                                 <div class="am-fnavigation">
-                                    <?php if(!empty( setting('_front_page_settings.app_section_heading'))): ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty( setting('_front_page_settings.app_section_heading'))): ?>
                                         <div class="am-fnavigation_title">
                                             <h3><?php echo e(setting('_front_page_settings.app_section_heading')); ?></h3>
                                         </div>
-                                    <?php endif; ?>
-                                    <?php if(!empty( setting('_front_page_settings.app_section_description'))): ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty( setting('_front_page_settings.app_section_description'))): ?>
                                         <p><?php echo e(setting('_front_page_settings.app_section_description')); ?></p>
-                                    <?php endif; ?>
-                                    <?php if(
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(
                                         (!empty(setting('_general.ios_app_logo')) && !empty(setting('_front_page_settings.app_ios_link'))) ||
                                         (!empty(setting('_general.android_app_logo')) && !empty(setting('_front_page_settings.app_android_link')))
                                     ): ?>
                                         <div class="am-fnavigation_app">
-                                            <?php if(!empty(!empty(setting('_general.ios_app_logo'))) && !empty(setting('_front_page_settings.app_ios_link'))): ?>
+                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(!empty(setting('_general.ios_app_logo'))) && !empty(setting('_front_page_settings.app_ios_link'))): ?>
                                                 <a href="<?php echo e(setting('_front_page_settings.app_ios_link')); ?>">
                                                     <img src="<?php echo e(url(Storage::url(setting('_general.ios_app_logo')[0]['path']))); ?>" alt="App store image">
                                                 </a>
-                                            <?php endif; ?>
-                                            <?php if(!empty(!empty(setting('_general.android_app_logo'))) && !empty(setting('_front_page_settings.app_android_link'))): ?>
+                                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(!empty(setting('_general.android_app_logo'))) && !empty(setting('_front_page_settings.app_android_link'))): ?>
                                                 <a href="<?php echo e(setting('_front_page_settings.app_android_link')); ?>">
                                                     <img src="<?php echo e(url(Storage::url(setting('_general.android_app_logo')[0]['path']))); ?>" alt="Google play store image">
                                                 </a>
-                                            <?php endif; ?>
+                                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                         </div>
-                                    <?php endif; ?>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -381,29 +381,29 @@ unset($__defined_vars); ?>
             <div class="row">
                 <div class="col-12">
                     <div class="am-footer-content">
-                        <?php if(!empty(setting('_front_page_settings.footer_heading'))): ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.footer_heading'))): ?>
                             <h2 data-aos="fade-up"  data-aos-duration="400" data-aos-easing="ease"><?php echo setting('_front_page_settings.footer_heading'); ?></h2>
-                        <?php endif; ?>
-                        <?php if(!empty(setting('_front_page_settings.footer3_paragraph'))): ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.footer3_paragraph'))): ?>
                             <p data-aos="fade-up"  data-aos-duration="500" data-aos-easing="ease"><?php echo setting('_front_page_settings.footer3_paragraph'); ?></p>
-                        <?php endif; ?>
-                        <?php if(!empty(setting('_front_page_settings.primary_button_url')) 
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.primary_button_url')) 
                             || !empty(setting('_front_page_settings.primary_button_text'))
                             || !empty(setting('_front_page_settings.secondary_button_url')) 
                             || !empty(setting('_front_page_settings.secondary_button_text'))): ?>
                             <div class="am-actions" data-aos="fade-up"  data-aos-duration="600" data-aos-easing="ease">
-                                <?php if(!empty(setting('_front_page_settings.primary_button_url')) || !empty(setting('_front_page_settings.primary_button_text'))): ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.primary_button_url')) || !empty(setting('_front_page_settings.primary_button_text'))): ?>
                                     <a href="<?php echo setting('_front_page_settings.primary_button_url'); ?>" class="am-getstarted-btn"><?php echo setting('_front_page_settings.primary_button_text'); ?></a>
-                                <?php endif; ?>
-                                <?php if(!empty(setting('_front_page_settings.secondary_button_url')) || !empty(setting('_front_page_settings.secondary_button_text'))): ?>
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.secondary_button_url')) || !empty(setting('_front_page_settings.secondary_button_text'))): ?>
                                     <a href="<?php echo setting('_front_page_settings.secondary_button_url'); ?>" class="am-outline-btn"><?php echo setting('_front_page_settings.secondary_button_text'); ?></a>
-                                <?php endif; ?>
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </div>
-                        <?php endif; ?>
-                        <?php if(getMenu('footer', 'Footer menu 6')->isNotEmpty()): ?>
-                            <?php if(!empty(getMenu('footer', 'Footer menu 6'))): ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(getMenu('footer', 'Footer menu 6')->isNotEmpty()): ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(getMenu('footer', 'Footer menu 6'))): ?>
                                 <ul class="am-footer-nav">
-                                    <?php $__currentLoopData = getMenu('footer', 'Footer menu 6'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = getMenu('footer', 'Footer menu 6'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $item]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -424,19 +424,19 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </ul>
-                            <?php endif; ?>
-                        <?php endif; ?>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
-        <?php if(!empty(setting('_front_page_settings.footer_background_image'))): ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_front_page_settings.footer_background_image'))): ?>
             <img class="am-img" src="<?php echo e(url(Storage::url(setting('_front_page_settings.footer_background_image')[0]['path']))); ?>" alt="image-description">
-        <?php endif; ?>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     </footer>
-<?php endif; ?>
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
 
 

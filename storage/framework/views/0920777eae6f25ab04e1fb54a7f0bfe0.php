@@ -35,7 +35,7 @@
             'public/css/splide.min.css',
         ]); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/main.css')); ?>">
-    <?php if(!empty($page) && $page->slug == 'home-two'): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($page) && $page->slug == 'home-two'): ?>
         <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/colors-variation/home-two.css')); ?>">
     <?php elseif(!empty($page) && $page->slug == 'home-three'): ?>
         <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/colors-variation/home-three.css')); ?>">
@@ -51,7 +51,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/colors-variation/home-eight.css')); ?>">
     <?php elseif(!empty($page) && $page->slug == 'home-nine'): ?>
         <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/colors-variation/home-nine.css')); ?>">
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     <?php if (isset($component)) { $__componentOriginal82e3f864bb766fbb95cb0a10b750823c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal82e3f864bb766fbb95cb0a10b750823c = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.favicon','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -74,18 +74,18 @@
 <?php endif; ?>
 
     <?php echo $__env->yieldPushContent('styles'); ?>
-    <?php if( !empty(setting('_general.enable_rtl')) || !empty(session()->get('rtl')) ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty(setting('_general.enable_rtl')) || !empty(session()->get('rtl')) ): ?>
         <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/rtl.css')); ?>">
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
-    <?php if( !empty(setting('_scripts_styles.header_scripts')) ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty(setting('_scripts_styles.header_scripts')) ): ?>
         <?php echo setting('_scripts_styles.header_scripts'); ?>
 
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
-    <?php if( !empty(setting('_scripts_styles.custom_styles')) ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty(setting('_scripts_styles.custom_styles')) ): ?>
         <style><?php echo html_entity_decode(setting('_scripts_styles.custom_styles')); ?></style>
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
      
 </head>
 
@@ -155,14 +155,14 @@
 <?php $component = $__componentOriginal3c480fe32eca01afa89706656753ba58; ?>
 <?php unset($__componentOriginal3c480fe32eca01afa89706656753ba58); ?>
 <?php endif; ?>
-    <?php if(session('impersonated_name')): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(session('impersonated_name')): ?>
         <div class="am-impersonation-bar">
             <span><?php echo e(__('general.impersonating')); ?> <strong><?php echo e(session('impersonated_name')); ?></strong></span>
             <a href="<?php echo e(route('exit-impersonate')); ?>" class="am-btn"><?php echo e(__('general.exit')); ?></a>
         </div>
-    <?php endif; ?>
-    <?php if(auth()->guard()->check()): ?>
-        <?php if(
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->guard()->check()): ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(
             session('default_role_id'   . auth()->user()->id) && 
             session('active_role_id'    . auth()->user()->id) && 
             session('default_role_id'   . auth()->user()->id) != session('active_role_id' . auth()->user()->id)
@@ -171,8 +171,8 @@
                 <span><?php echo __('app.switched_role_message', ['role' => Str::ucfirst(auth()->user()->role)]); ?></span>
                 <a href="javascript:void(0);" class="am-btn"><?php echo e(__('general.close_btn')); ?></a>
             </div>  
-        <?php endif; ?>
-    <?php endif; ?>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::scripts(); ?>
 
     <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
@@ -221,10 +221,10 @@
         });
     </script>
    
-    <?php if( !empty(setting('_scripts_styles.footer_scripts')) ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty(setting('_scripts_styles.footer_scripts')) ): ?>
         <?php echo setting('_scripts_styles.footer_scripts'); ?>
 
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     <?php if (isset($component)) { $__componentOriginalbc204d82cd558584c34dbb39cec4fcc4 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalbc204d82cd558584c34dbb39cec4fcc4 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.gdpr','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>

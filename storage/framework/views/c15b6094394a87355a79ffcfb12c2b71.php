@@ -33,9 +33,9 @@
 <?php endif; ?>
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/main.css')); ?>">
     <?php echo $__env->yieldPushContent('styles'); ?>
-    <?php if( !empty(setting('_general.enable_rtl')) || !empty(session()->get('rtl')) ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !empty(setting('_general.enable_rtl')) || !empty(session()->get('rtl')) ): ?>
         <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/rtl.css')); ?>">
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     <?php echo $__env->yieldPushContent('scripts'); ?>
 </head>
 
