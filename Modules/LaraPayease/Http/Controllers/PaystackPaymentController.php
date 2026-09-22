@@ -11,7 +11,7 @@ class PaystackPaymentController extends Controller
     public function prepareCharge(Request $request)
     {
         try {
-            $paystack_session = PaymentDriver::paystack()->prepareCharge([
+            $paystack_session = getGatewayObject('paystack')->prepareCharge([
                 'amount' => $request->amount,
                 'charge_amount' => $request->charge_amount,
                 'title' => $request->title,
@@ -24,7 +24,6 @@ class PaystackPaymentController extends Controller
                 'email' => $request->email,
                 'name' => $request->name,
                 'payment_type' => $request->payment_type,
-                'paystack_secret_key' => $request->paystack_secret_key,
                 'currency' => $request->currency,
             ]);
             
@@ -44,7 +43,7 @@ class PaystackPaymentController extends Controller
     public function handleCallback(Request $request)
     {
         try {
-            $response = PaymentDriver::paystack()->paymentResponse([
+            $response = getGatewayObject('paystack')->paymentResponse([
                 'reference' => $request->reference,
                 'order_id' => $request->order_id
             ]);
