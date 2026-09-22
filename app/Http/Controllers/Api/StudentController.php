@@ -44,7 +44,7 @@ class StudentController extends Controller
         if ($tutor->role !== 'tutor') {
             return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
         }
-        $userService    = app(UserService::class)$tutor);
+        $userService    = new UserService($tutor);
         $utorRatings    = $userService->getTutorRatings($tutor->id,$request->rating);
         return $this->success(data: new TutorCollection($utorRatings));
 

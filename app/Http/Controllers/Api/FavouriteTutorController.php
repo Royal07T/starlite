@@ -22,7 +22,7 @@ class FavouriteTutorController extends Controller
             return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
         }
 
-        $userService  = app(UserService::class)Auth::user());
+        $userService  = new UserService(Auth::user());
         $favourites   = $userService->getFavouriteUsers()
         ->with(['profile:id,user_id,slug,first_name,last_name,image,native_language,verified_at',
                 'address:id,addressable_id,addressable_type,country_id','languages:id,name'])
@@ -46,7 +46,7 @@ class FavouriteTutorController extends Controller
         if( $response ){
             return $this->error(data: null,message: __('general.demosite_res_txt'),code: Response::HTTP_FORBIDDEN);
         }
-        $userService = app(UserService::class)Auth::user());
+        $userService = new UserService(Auth::user());
 
         $user = User::find($userId)?->load('profile');
 
