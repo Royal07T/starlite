@@ -1,4 +1,4 @@
-# Starlite (Lernen) — Online Tutoring & Education Marketplace
+# Starlite  — Online Tutoring & Education Marketplace
 
 A full-featured online tutoring and education marketplace platform built with Laravel 11, Livewire 3, and modular architecture. Starlite connects tutors with students for 1-on-1 sessions, and supports courses, course bundles, and real-time communication.
 
