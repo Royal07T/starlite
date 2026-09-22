@@ -799,15 +799,6 @@ class DefaultSettingSeeder extends Seeder
                         'sort'      => '5',
                         'class'     => '',
                     ],
-                    [
-                        'menu_id'   => '',
-                        'parent_id' => null,
-                        'label'     => 'More',
-                        'route'     => url('/'),
-                        'type'      => 'page',
-                        'sort'      => '6',
-                        'class'     => '',
-                    ],
 
                 ]
             ],
