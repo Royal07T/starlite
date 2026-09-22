@@ -1,48 +1,43 @@
-# Dependencies
-/node_modules
-/vendor
 
-# Environment
+ai_assistant/.env
+ai_assistant/.env.*
+ai_assistant/venv/
+# Archives & Dumps
+# Build assets
+# Cache & Sessions
+# Dependencies
 .env
 .env.*
 !.env.example
-
-# Build assets
+# Environment
+.fleet/
+# IDE
+.idea/
+# Misc
+/node_modules
+node_modules.zip
+.phpunit.cache
+.phpunit.result.cache
 /public/build
 /public/hot
 /public/storage
-
-# Cache & Sessions
+public.zip
+*.pyc
+__pycache__/
+# Python
+*.sql
+***REMOVED***.sql
+starlite.sql
 /storage/framework/cache/*
 /storage/framework/sessions/*
 /storage/framework/views/*
 /storage/logs/*
-
-# Python
-ai_assistant/venv/
-__pycache__/
-*.pyc
-
-# Archives & Dumps
-*.sql
-*.zip
-*.tgz
-*.tar.gz
-
-# IDE
-.idea/
-.vscode/
-.fleet/
-*.swp
 *.swo
-
+*.swp
+*.tar.gz
 # Testing
-.phpunit.cache
-.phpunit.result.cache
-
-# Misc
-public.zip
-node_modules.zip
-***REMOVED***.sql
-starlite.sql
+*.tgz
 themify-icons-1.0.0.tgz
+/vendor
+.vscode/
+*.zip
