@@ -5,8 +5,7 @@ use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Impersonate;
 use App\Http\Controllers\OpenAiController;
 use App\Http\Controllers\SiteController;
-use App\Livewire\Frontend\BlogDetails;
-use App\Livewire\Frontend\Blogs;
+
 use App\Livewire\Frontend\Checkout;
 use App\Livewire\Frontend\ThankYou;
 use App\Livewire\Pages\Common\Bookings\UserBooking;
@@ -34,9 +33,6 @@ Route::view('language-translator', 'language-translator');
 
 Route::middleware(['locale', 'maintenance'])->group(function () {
     Route::get('find-tutors', [SearchController::class, 'findTutors'])->name('find-tutors');
-    Route::get('/blogs', Blogs::class)->name('blogs');
-    Route::get('/blog/{slug}', BlogDetails::class)->name('blog-details');
-
     Route::get('checkout', Checkout::class)->name('checkout');
     Route::get('thank-you/{id}', ThankYou::class)->name('thank-you');
 

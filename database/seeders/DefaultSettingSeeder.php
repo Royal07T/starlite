@@ -808,24 +808,7 @@ class DefaultSettingSeeder extends Seeder
                         'sort'      => '6',
                         'class'     => '',
                     ],
-                    [
-                        'menu_id'   => '',
-                        'parent_id' => '14',
-                        'label'     => 'Common FAQs',
-                        'route'     => url('faq'),
-                        'type'      => 'page',
-                        'sort'      => '13',
-                        'class'     => '',
-                    ],
-                    [
-                        'menu_id'   => '',
-                        'parent_id' => '14',
-                        'label'     => 'Blogs',
-                        'route'     => url('blogs'),
-                        'type'      => 'page',
-                        'sort'      => '13',
-                        'class'     => '',
-                    ],
+
                 ]
             ],
             [
@@ -862,28 +845,10 @@ class DefaultSettingSeeder extends Seeder
                     [
                         'menu_id'   => '',
                         'parent_id' => null,
-                        'label'     => 'Common FAQs',
-                        'route'     => url('faq'),
-                        'type'      => 'page',
-                        'sort'      => '5',
-                        'class'     => '',
-                    ],
-                    [
-                        'menu_id'   => '',
-                        'parent_id' => null,
                         'label'     => 'How it Works',
                         'route'     => url('how-it-works'),
                         'type'      => 'page',
                         'sort'      => '6',
-                        'class'     => '',
-                    ],
-                    [
-                        'menu_id'   => '',
-                        'parent_id' => null,
-                        'label'     => 'Blogs',
-                        'route'     => url('blogs'),
-                        'type'      => 'page',
-                        'sort'      => '7',
                         'class'     => '',
                     ],
                 ]
@@ -1172,24 +1137,7 @@ class DefaultSettingSeeder extends Seeder
                         'sort'      => '5',
                         'class'     => '',
                     ],
-                    [
-                        'menu_id'   => '',
-                        'parent_id' => null,
-                        'label'     => 'FAQs',
-                        'route'     => url('faq'),
-                        'type'      => 'page',
-                        'sort'      => '6',
-                        'class'     => '',
-                    ],
-                    [
-                        'menu_id'   => '',
-                        'parent_id' => null,
-                        'label'     => 'Blogs',
-                        'route'     => url('blogs'),
-                        'type'      => 'page',
-                        'sort'      => '7',
-                        'class'     => '',
-                    ],
+
                 ]
             ],
         ];

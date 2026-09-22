@@ -1,10 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\GeneralController;
-use App\Livewire\Pages\Admin\Blogs\BlogCategories;
-use App\Livewire\Pages\Admin\Blogs\Blogs;
-use App\Livewire\Pages\Admin\Blogs\CreateBlog;
-use App\Livewire\Pages\Admin\Blogs\UpdateBlog;
+
 use App\Livewire\Pages\Admin\Bookings\Bookings;
 use App\Livewire\Pages\Admin\Dispute\Dispute;
 use App\Livewire\Pages\Admin\Dispute\ManageDispute;
@@ -36,10 +33,6 @@ Route::middleware(['auth', 'verified', 'role:admin|sub_admin'])->prefix('admin')
 
     Route::get('/profile', AdminProfile::class)->name('profile');
     Route::get('/manage-menus', ManageMenu::class)->name('manage-menus')->middleware('permit-of:can-manage-menu');
-    Route::get('/blogs', Blogs::class)->name('blog-listing')->middleware('permit-of:can-manage-all-blogs');
-    Route::get('/blogs/create', CreateBlog::class)->name('create-blog')->middleware('permit-of:can-manage-create-blogs');
-    Route::get('/blogs/update/{id}', UpdateBlog::class)->name('update-blog')->middleware('permit-of:can-manage-update-blogs');
-    Route::get('/blog-categories', BlogCategories::class)->name('blog-categories')->middleware('permit-of:can-manage-blog-categories');
     Route::get('language-translator', LanguageTranslator::class)->name('language-translator')->middleware('permit-of:can-manage-language-translations');
     Route::prefix('taxonomies')->name('taxonomy.')->group(function () {
         Route::get('languages', Languages::class)->name('languages')->middleware('permit-of:can-manage-languages');
