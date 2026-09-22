@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', AdminComposer::class);
 
         Gate::before(function ($user, $ability) {
-            if ($user->role == 'admin') {
+            if ($user && method_exists($user, 'hasRole') ? $user->hasRole('admin') : ($user->role ?? null) === 'admin') {
                 return true;
             }
         });
