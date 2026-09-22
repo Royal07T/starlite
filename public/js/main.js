@@ -518,7 +518,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const currencyInput = currencyForm.querySelector(
             'input[name="am-currency"]'
         );
-        currencyList.querySelectorAll('li')?.forEach((item) => {
+        currencyList?.querySelectorAll('li')?.forEach((item) => {
             item.addEventListener('click', function () {
                 const langText = this.querySelector('span').textContent;
                 const currentLang = currencyAnchor.textContent.trim();
