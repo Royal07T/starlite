@@ -1,1 +1,4 @@
 node_modules
+ai_assistant/venv/
+__pycache__/
+*.pyc
