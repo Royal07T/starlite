@@ -20,7 +20,7 @@ class InvoiceController extends Controller
             return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
         }
 
-        $orderService     = new OrderService();
+        $orderService     = app(OrderService::class);
         $orders           = $orderService->getOrders($request->status, null, 'Desc', null , null ,Auth::user()->id);
         return $this->success(data: new OrderCollection($orders),message: __('api.invoices_retrieved_successfully'));
     }
