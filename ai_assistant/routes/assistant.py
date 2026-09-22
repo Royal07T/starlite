@@ -42,6 +42,16 @@ def ask_question(req: AskRequest, request: Request, db: Session = Depends(get_db
     client_ip = request.client.host if request.client else "unknown"
     check_rate_limit(client_ip)
 
+    # Service authentication
+    auth = request.headers.get("Authorization", "")
+    if not auth.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Missing or invalid authorization header")
+    token = auth.split(" ", 1)[1].strip()
+    if not token or not settings.AI_SERVICE_TOKEN or token != settings.AI_SERVICE_TOKEN:
+        raise HTTPException(status_code=401, detail="Invalid service token")
+
+    # Prefer identity from authenticated claim if provided in future; for now body student_id allowed
+    # but token is required. Do not trust unauthed external callers.
     if not verify_enrollment(db, req.student_id, req.course_id):
         raise HTTPException(status_code=403, detail="You are not enrolled in this course")
 

@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     OPENAI_MODEL: str = "gpt-4o-mini"
     OPENAI_TIMEOUT: int = 30
     OPENAI_MAX_TOKENS: int = 1500
+    AI_SERVICE_TOKEN: str = ""
     SESSION_MAX_AGE: int = 3600
     SESSION_MAX_HISTORY: int = 20
     RATE_LIMIT_PER_MINUTE: int = 20
