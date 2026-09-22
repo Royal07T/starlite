@@ -20,7 +20,6 @@ class Paystack extends BasePaymentDriver
         return view('larapayease::paystack', ['paystack_data' => array_merge($params, [
             'paystack_public_key' => $this->getKeys()['paystack_public_key'],
             'currency' => $this->getCurrency(),
-            'paystack_secret_key' => base64_encode($this->getKeys()['paystack_secret_key']),
             'charge_amount' => $this->chargeableAmount($params['amount']),
         ])]);
     }
@@ -63,7 +62,7 @@ class Paystack extends BasePaymentDriver
 
     public function prepareCharge(array $params)
     {
-        $secretKey = base64_decode($params['paystack_secret_key']);
+        $secretKey = $this->getKeys()['paystack_secret_key'];
         
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $secretKey,
