@@ -46,9 +46,9 @@ class SocialController extends Controller
             return redirect()->route('login')->with('error', __('auth.social_login_error', ['platform' => ucfirst($provider)]));
         }
 
-        $user = (app(RegisterService::class))->createSocialUser($socialUser->getEmail(), $socialUser->getId(), $provider);
+        $user = (new RegisterService())->createSocialUser($socialUser->getEmail(), $socialUser->getId(), $provider);
 
-        $profile = (app(ProfileService::class)$user->id))->getUserProfile();
+        $profile = (new ProfileService($user->id))->getUserProfile();
         if (empty($profile)) {
             session(['name' => $socialUser->getName(), 'email' => $socialUser->getEmail()]);
             return redirect()->route('social-profile');

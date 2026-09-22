@@ -38,7 +38,7 @@ class ExperienceController extends Controller
             return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
         }
 
-        $experiencesService    = app(ExperienceService::class)$tutor);
+        $experiencesService    = new ExperienceService($tutor);
         $experience            = $experiencesService->getUserExperiences();
         return $this->success(data: ExperienceResource::collection($experience));
 
@@ -55,7 +55,7 @@ class ExperienceController extends Controller
             return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
         }
 
-        $experiencesService = app(ExperienceService::class)Auth::user());
+        $experiencesService = new ExperienceService(Auth::user());
 
         $experienceDetail = [
             'title'             => $request->title,
@@ -87,7 +87,7 @@ class ExperienceController extends Controller
             return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
         }
 
-        $experiencesService   = app(ExperienceService::class)Auth::user());
+        $experiencesService   = new ExperienceService(Auth::user());
         $experience           = $experiencesService->getUseExperience($experienceId);
 
         if (empty($experience)) {
@@ -128,7 +128,7 @@ class ExperienceController extends Controller
             return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
         }
 
-        $experiencesService   = app(ExperienceService::class)Auth::user());
+        $experiencesService   = new ExperienceService(Auth::user());
         $experience           = $experiencesService->getUseExperience($experienceId);
 
         if (empty($experience)) {
