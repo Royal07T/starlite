@@ -503,7 +503,6 @@ class BookingService
             $metaData = $slot['meta_data'] ?? [];
             $metaData['reason'] = $sessionData['reason'];
             DB::beginTransaction();
-            DB::statement('SET FOREIGN_KEY_CHECKS=0');
             if (!empty($slot) && $slot->total_booked > 0) {
                 $slotInfo = $this->addSessionSlot(parseToUTC($sessionData['date']), [
                     'start_time'         => $sessionData['start_time'],
