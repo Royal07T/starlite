@@ -20,11 +20,11 @@ class AppServiceProvider extends ServiceProvider
     {
         // Removed Telescope registration as it's not installed
         $this->app->singleton('cart', function ($app) {
-            return new CartService();
+            return app(CartService::class);
         });
 
-        $this->app->singleton('db-notification', function () {
-            return new DbNotificationService();
+        $this->app->singleton('db-notification', function ($app) {
+            return app(DbNotificationService::class);
         });
     }
 
