@@ -568,7 +568,11 @@ class BookingService
             }
             return false;
         } catch (Exception $ex) {
-            Log::info($ex);
+            Log::error('Failed to reschedule session', [
+                'slot_id' => $slotId,
+                'error' => $ex->getMessage(),
+                'trace' => $ex->getTraceAsString(),
+            ]);
             DB::statement('SET FOREIGN_KEY_CHECKS=1');
             DB::rollBack();
             return false;

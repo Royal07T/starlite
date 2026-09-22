@@ -9,11 +9,18 @@ use Illuminate\Support\Facades\DB;
 
 class PayoutService {
 
-    public function geWithdrawalBalance($userId) {
+    public function getWithdrawalBalance($userId) {
 
         return User::select('id')->withSum('pendingWithdrawals as pending_withdrawals', 'amount')
         ->withSum('completedWithdrawals as completed_withdrawals', 'amount')
         ->whereKey($userId)->first();
+    }
+
+    /**
+     * @deprecated Use getWithdrawalBalance() instead
+     */
+    public function geWithdrawalBalance($userId) {
+        return $this->getWithdrawalBalance($userId);
     }
 
     public function getWithdrawalTypes($userId) {

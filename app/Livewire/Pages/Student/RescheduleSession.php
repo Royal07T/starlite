@@ -61,7 +61,7 @@ class RescheduleSession extends Component
             }
             DB::commit();
         }catch(\Exception $ex){
-            Log::info($ex);
+            Log::error('Failed to process session reschedule and refund', ['error' => $ex->getMessage(), 'trace' => $ex->getTraceAsString()]);
             DB::rollBack();
             Session::flash('rescheduled_msg', __('calendar.refunded_error'));
         }

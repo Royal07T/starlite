@@ -195,7 +195,7 @@ class BookingController extends Controller
             return $this->success(message: __('calendar.dispute_success_msg'), code: Response::HTTP_OK);
         } catch (Exception $ex) {
             DB::rollBack();
-            Log::info($ex);
+            Log::error('Failed to create dispute for booking', ['error' => $ex->getMessage(), 'trace' => $ex->getTraceAsString()]);
             return $this->error(message: $ex->getMessage(), code: Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }

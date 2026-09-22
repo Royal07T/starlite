@@ -205,13 +205,21 @@ class OrderService
         return $orders;
     }
 
-    public function getOrdeWrWithItem($id, $with = [])
+    public function getOrderWithItem($id, $with = [])
     {
         $order = Order::with($with)->find($id);
         if ($order) {
             return $order;
         }
         return false;
+    }
+
+    /**
+     * @deprecated Use getOrderWithItem() instead
+     */
+    public function getOrdeWrWithItem($id, $with = [])
+    {
+        return $this->getOrderWithItem($id, $with);
     }
 
     public function createOrder($billingDetail)
