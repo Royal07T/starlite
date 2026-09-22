@@ -3,3 +3,4 @@
         <span class="am-currency-anchor">NGN&nbsp;&#8358;</span>
     </div>
 </div>
+<?php /**PATH /home/royal-t/starlite/starlite/resources/views/components/multi-currency.blade.php ENDPATH**/ ?>
