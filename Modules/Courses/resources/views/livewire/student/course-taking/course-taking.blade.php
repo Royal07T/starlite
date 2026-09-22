@@ -899,7 +899,186 @@
         'public/css/videojs.css',
         'public/css/flags.css',
     ])
+    <style>
+        .ai-chat-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ai-chat-toggle:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(99, 102, 241, 0.55);
+        }
+        .ai-chat-toggle svg {
+            width: 28px;
+            height: 28px;
+            fill: #fff;
+        }
+        .ai-chat-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            z-index: 9998;
+            width: 400px;
+            max-height: 520px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.18);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .ai-chat-panel.open { display: flex; }
+        .ai-chat-header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ai-chat-header img { width: 28px; height: 28px; }
+        .ai-chat-header span { font-weight: 600; font-size: 15px; flex: 1; }
+        .ai-chat-header button {
+            background: none; border: none; color: #fff; cursor: pointer;
+            font-size: 18px; line-height: 1; padding: 0 4px;
+        }
+        .ai-chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 360px;
+            min-height: 200px;
+        }
+        .ai-msg {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+        .ai-msg.user {
+            align-self: flex-end;
+            background: #6366f1;
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        .ai-msg.assistant {
+            align-self: flex-start;
+            background: #f1f5f9;
+            color: #1e293b;
+            border-bottom-left-radius: 4px;
+        }
+        .ai-msg.assistant pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 10px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            margin: 8px 0 0;
+        }
+        .ai-msg.assistant code {
+            background: #e2e8f0;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        .ai-typing {
+            display: flex;
+            gap: 4px;
+            padding: 12px 14px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            align-self: flex-start;
+            max-width: 60px;
+        }
+        .ai-typing span {
+            width: 7px; height: 7px;
+            background: #94a3b8;
+            border-radius: 50%;
+            animation: ai-bounce 1.2s infinite;
+        }
+        .ai-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .ai-typing span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes ai-bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-6px); }
+        }
+        .ai-chat-input {
+            padding: 12px 16px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 8px;
+        }
+        .ai-chat-input input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .ai-chat-input input:focus { border-color: #6366f1; }
+        .ai-chat-input button {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border: none;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s;
+        }
+        .ai-chat-input button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .ai-chat-input button svg { width: 18px; height: 18px; fill: #fff; }
+        @media (max-width: 480px) {
+            .ai-chat-panel { width: calc(100vw - 32px); right: 16px; bottom: 80px; }
+        }
+    </style>
 @endpush
+
+<div class="ai-chat-toggle" id="aiChatToggle" title="AI Course Assistant">
+    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
+</div>
+
+<div class="ai-chat-panel" id="aiChatPanel">
+    <div class="ai-chat-header">
+        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:#fff"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
+        <span>AI Course Assistant</span>
+        <button id="aiChatClose">&times;</button>
+    </div>
+    <div class="ai-chat-messages" id="aiChatMessages">
+        <div class="ai-msg assistant">Hi! I'm your AI tutor. Ask me anything about this course and I'll help you understand it better.</div>
+    </div>
+    <div class="ai-chat-input">
+        <input type="text" id="aiChatInput" placeholder="Ask about this course..." autocomplete="off">
+        <button id="aiChatSend" disabled>
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+    </div>
+</div>
 
 @push('scripts')
     <script defer src="{{ asset('modules/courses/js/nouislider.min.js')}}"></script>
@@ -1016,6 +1195,101 @@
             jQuery(document).on('click', '.cr-sidebar_toggle', function() {
             jQuery('.cr-coursesdetails').toggleClass('cr-coursesdetails_fullwidth');
             });
+
+            // AI Chat Widget
+            var aiChatToggle = document.getElementById('aiChatToggle');
+            var aiChatPanel = document.getElementById('aiChatPanel');
+            var aiChatClose = document.getElementById('aiChatClose');
+            var aiChatInput = document.getElementById('aiChatInput');
+            var aiChatSend = document.getElementById('aiChatSend');
+            var aiChatMessages = document.getElementById('aiChatMessages');
+
+            var aiSessionId = localStorage.getItem('ai_session_{{ $course->id }}') || null;
+            var aiCourseId = {{ $course->id }};
+            var aiStudentId = {{ auth()->id() }};
+            var aiCurriculumId = @js($activeCurriculum['id'] ?? null);
+
+            aiChatToggle.addEventListener('click', function() {
+                aiChatPanel.classList.toggle('open');
+                if (aiChatPanel.classList.contains('open')) {
+                    aiChatInput.focus();
+                }
+            });
+
+            aiChatClose.addEventListener('click', function() {
+                aiChatPanel.classList.remove('open');
+            });
+
+            aiChatInput.addEventListener('input', function() {
+                aiChatSend.disabled = this.value.trim().length < 2;
+            });
+
+            aiChatInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !aiChatSend.disabled) {
+                    aiChatSend.click();
+                }
+            });
+
+            aiChatSend.addEventListener('click', function() {
+                var question = aiChatInput.value.trim();
+                if (!question) return;
+
+                appendAiMessage('user', question);
+                aiChatInput.value = '';
+                aiChatSend.disabled = true;
+                showAiTyping();
+
+                fetch('http://127.0.0.1:8001/api/v1/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        student_id: aiStudentId,
+                        course_id: aiCourseId,
+                        curriculum_id: aiCurriculumId,
+                        question: question,
+                        session_id: aiSessionId
+                    })
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    removeAiTyping();
+                    if (data.answer) {
+                        appendAiMessage('assistant', data.answer);
+                        if (data.session_id) {
+                            aiSessionId = data.session_id;
+                            localStorage.setItem('ai_session_' + aiCourseId, aiSessionId);
+                        }
+                    } else {
+                        appendAiMessage('assistant', 'Sorry, something went wrong. Please try again.');
+                    }
+                })
+                .catch(function() {
+                    removeAiTyping();
+                    appendAiMessage('assistant', 'Unable to reach the AI assistant. Please check your connection.');
+                });
+            });
+
+            function appendAiMessage(role, text) {
+                var div = document.createElement('div');
+                div.className = 'ai-msg ' + role;
+                div.textContent = text;
+                aiChatMessages.appendChild(div);
+                aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+            }
+
+            function showAiTyping() {
+                var div = document.createElement('div');
+                div.className = 'ai-typing';
+                div.id = 'aiTypingIndicator';
+                div.innerHTML = '<span></span><span></span><span></span>';
+                aiChatMessages.appendChild(div);
+                aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+            }
+
+            function removeAiTyping() {
+                var el = document.getElementById('aiTypingIndicator');
+                if (el) el.remove();
+            }
         });
         
     </script>

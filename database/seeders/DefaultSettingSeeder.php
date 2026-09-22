@@ -536,11 +536,11 @@ class DefaultSettingSeeder extends Seeder
                 'site_email'                    => 'hellow@yourdomain.com',
                 'date_format'                   => 'F j, Y',
                 'address_format'                => 'city_country',
-                'currency'                      => 'USD',
+                'currency'                      => 'NGN',
                 'per_page_record'               => 10,
                 'default_avatar_for_user'       => [uploadObMedia('images/default_avatar.webp')],
-                'enable_multi_currency'         => 'yes',
-                'multi_currency_list'           => ['USD', 'GBP', 'EUR', 'AUD', 'CAD'],
+                'enable_multi_currency'         => 'no',
+                'multi_currency_list'           => ['NGN'],
                 'timezone'                      => env('APP_TIMEZONE', 'UTC'),
 
                 //upload_settings
@@ -670,7 +670,7 @@ class DefaultSettingSeeder extends Seeder
             'admin_settings' => [
                 'payment_method' =>  [
                     'stripe' => [
-                        'currency' => 'USD',
+                        'currency' => 'NGN',
                         'stripe_key' => env('STRIPE_KEY', ''),
                         'stripe_secret' => env('STRIPE_SECRET', ''),
                         'status' => 'on',
