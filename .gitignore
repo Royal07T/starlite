@@ -1,4 +1,48 @@
-node_modules
+# Dependencies
+/node_modules
+/vendor
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Build assets
+/public/build
+/public/hot
+/public/storage
+
+# Cache & Sessions
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+
+# Python
 ai_assistant/venv/
 __pycache__/
 *.pyc
+
+# Archives & Dumps
+*.sql
+*.zip
+*.tgz
+*.tar.gz
+
+# IDE
+.idea/
+.vscode/
+.fleet/
+*.swp
+*.swo
+
+# Testing
+.phpunit.cache
+.phpunit.result.cache
+
+# Misc
+public.zip
+node_modules.zip
+***REMOVED***.sql
+starlite.sql
+themify-icons-1.0.0.tgz

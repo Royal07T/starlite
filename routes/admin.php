@@ -76,5 +76,8 @@ Route::middleware(['auth', 'verified', 'role:admin|sub_admin'])->prefix('admin')
     Route::post('update-reverb-settings', [GeneralController::class, 'updateReverbSettings'])->name('update-reverb-settings')->middleware('permit-of:can-manage-option-builder');
     Route::post('update-social-login-settings', [GeneralController::class, 'updateSocialLoginSettings'])->name('update-social-login-settings')->middleware('permit-of:can-manage-option-builder');
 });
-Route::get('download-invoice/{id}', [SiteController::class, 'downloadPDF'])->name('download.invoice');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('download-invoice/{id}', [SiteController::class, 'downloadPDF'])->name('download.invoice');
+});
 

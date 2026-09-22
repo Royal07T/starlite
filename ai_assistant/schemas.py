@@ -1,13 +1,13 @@
 from pydantic import BaseModel, Field
-from typing import Optional, List
+from typing import Optional
 
 
 class AskRequest(BaseModel):
-    student_id: int = Field(..., description="The student's user ID")
-    course_id: int = Field(..., description="The course ID")
-    curriculum_id: Optional[int] = Field(None, description="Specific topic/curriculum ID (optional)")
+    student_id: int = Field(..., gt=0, description="The student's user ID")
+    course_id: int = Field(..., gt=0, description="The course ID")
+    curriculum_id: Optional[int] = Field(None, gt=0, description="Specific topic/curriculum ID (optional)")
     question: str = Field(..., min_length=1, max_length=2000, description="Student's question")
-    session_id: Optional[str] = Field(None, description="Chat session ID for conversation history")
+    session_id: Optional[str] = Field(None, max_length=128, description="Chat session ID for conversation history")
 
 
 class AskResponse(BaseModel):
