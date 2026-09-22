@@ -22,7 +22,7 @@ class CartController extends Controller
     public function index()
     {
       
-        $cartService   = new CartService();
+        $cartService   = app(CartService::class);
         $items = $cartService->content();
         $total = $cartService->total();
         $subtotal = $cartService->subtotal();
@@ -58,7 +58,7 @@ class CartController extends Controller
         $timezone = getUserTimezone();
     
         $bookingService = new BookingService($user);
-        $cartService = new CartService();
+        $cartService = app(CartService::class);
         $slot =  $bookingService->getSlotDetail($request->id);
         if (!empty($slot->subjectGroupSubjects->userSubjectGroup?->user_id)) {
             $userId = $slot->subjectGroupSubjects->userSubjectGroup?->user_id;
@@ -119,7 +119,7 @@ class CartController extends Controller
         if($user->role == 'tutor'){
             return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
         }
-        $cartService = new CartService();
+        $cartService = app(CartService::class);
         $cartItem = $cartService->getById($id);
         if($cartItem){
             if ($cartItem->cartable_type == SlotBooking::class) {

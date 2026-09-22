@@ -17,7 +17,7 @@ class NotificationController extends Controller
      */
     public function index(Request $request)
     {
-        $notifications = (new DbNotificationService())->getUserNotificationsPaginated($request->user());
+        $notifications = app(DbNotificationService::class)->getUserNotificationsPaginated($request->user());
         return $this->success(data: new NotificationCollection($notifications) ,message: __('api.notifications_retrieved_successfully'));
     }
 

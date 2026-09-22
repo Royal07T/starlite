@@ -150,7 +150,7 @@ class CourseSelector extends Component
             return;
         }
         
-        $cartService = new CartService();
+        $cartService = app(CartService::class);
         $addedCount = 0;
         
         foreach ($this->selectedSubjects as $subjectId) {
