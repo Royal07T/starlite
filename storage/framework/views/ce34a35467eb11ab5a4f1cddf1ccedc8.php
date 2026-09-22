@@ -1,17 +1,17 @@
-<?php if(!empty(setting('_gdpr.enable_gdpr')) && (!empty(setting('_gdpr.gdpr_title')) || !empty(setting('_gdpr.gdpr_description')))): ?>
+<?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_gdpr.enable_gdpr')) && (!empty(setting('_gdpr.gdpr_title')) || !empty(setting('_gdpr.gdpr_description')))): ?>
     <div id="gdpr-note" class="am-cookies-note-wrap" style="display: none;">
         <div class="am-cookies-note">
             <div class="am-cookies-note_content">
-                <?php if(!empty(setting('_gdpr.gdpr_logo'))): ?>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_gdpr.gdpr_logo'))): ?>
                     <img src="<?php echo e(url(Storage::url(setting('_gdpr.gdpr_logo')[0]['path']))); ?>" alt="GDPR">
-                <?php endif; ?>
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 <div class="am-cookies-note_msg">
-                    <?php if(!empty(setting('_gdpr.gdpr_title'))): ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_gdpr.gdpr_title'))): ?>
                         <span><?php echo setting('_gdpr.gdpr_title'); ?></span>
-                    <?php endif; ?>
-                    <?php if(!empty(setting('_gdpr.gdpr_description'))): ?>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_gdpr.gdpr_description'))): ?>
                         <span><?php echo setting('_gdpr.gdpr_description'); ?></span>
-                    <?php endif; ?>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
             </div>
             <div class="am-cookies-note_btn">
@@ -40,4 +40,4 @@
             });
         });
     </script>
-<?php endif; ?><?php /**PATH /home/royal-t/starlite/starlite/resources/views/components/gdpr.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?><?php /**PATH /home/royal-t/starlite/starlite/resources/views/components/gdpr.blade.php ENDPATH**/ ?>

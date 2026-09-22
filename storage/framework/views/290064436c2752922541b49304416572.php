@@ -32,13 +32,13 @@ unset($__defined_vars); ?>
         <?php if($enableToggle && !$menu->children->isEmpty()): ?>  data-bs-toggle="collapse" data-bs-target="#<?php echo e($menu->id); ?>" <?php endif; ?>>
         <?php echo ucfirst($menu->label); ?>
 
-        <?php if( !$menu->children->isEmpty() ): ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !$menu->children->isEmpty() ): ?>
             <i class="am-icon-chevron-down"></i>
-        <?php endif; ?>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     </a>
-    <?php if( !$menu->children->isEmpty() ): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if( !$menu->children->isEmpty() ): ?>
         <ul class="sub-menu <?php echo e($enableToggle ? 'collapse' : ''); ?>" id="<?php echo e($menu->id); ?>">
-            <?php $__currentLoopData = $menu->children; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $child): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $menu->children; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $child): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <?php if (isset($component)) { $__componentOriginalce95f69c1ef890487f9ea684119db87d = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce95f69c1ef890487f9ea684119db87d = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.menu-item','data' => ['menu' => $child]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -59,7 +59,7 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginalce95f69c1ef890487f9ea684119db87d; ?>
 <?php unset($__componentOriginalce95f69c1ef890487f9ea684119db87d); ?>
 <?php endif; ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
         </ul>
-    <?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 </li><?php /**PATH /home/royal-t/starlite/starlite/resources/views/components/menu-item.blade.php ENDPATH**/ ?>

@@ -1,6 +1,6 @@
 <div class="am-tutorsearch">
-    <!--[if BLOCK]><![endif]--><?php if(!empty($repeatItems)): ?>
-        <!--[if BLOCK]><![endif]--><?php for($i = 0; $i < $repeatItems; $i ++): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty($repeatItems)): ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 0; $i < $repeatItems; $i ++): ?>
             <div class="am-tutorsearch_card">
                 <div class="am-tutorsearch_video">
                     <div class="am-tutorsearch_videoclip"> </div>
@@ -23,12 +23,12 @@
                                 <div class="am-tutorsearch_tag"> </div>
                             </div>
                         </div>
-                        <!--[if BLOCK]><![endif]--><?php if(isPaidSystem()): ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(isPaidSystem()): ?>
                             <div class="am-tutorsearch_fee">
                                 <div class="am-tutorsearch_feestitle"> </div>
                                 <div class="am-tutorsearch_fees"> </div>
                             </div>
-                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
                     <ul class="am-tutorsearch_info">
                         <li>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-        <?php endfor; ?><!--[if ENDBLOCK]><![endif]-->
-    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+        <?php endfor; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 </div>
 <?php /**PATH /home/royal-t/starlite/starlite/resources/views/skeletons/tutor-list.blade.php ENDPATH**/ ?>

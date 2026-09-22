@@ -271,7 +271,7 @@ use App\Livewire\Forms\Auth\RegisterUserForm;
 <?php unset($__componentOriginalf94ed9c5393ef72725d159fe01139746); ?>
 <?php endif; ?>
                         </div>
-                        <!--[if BLOCK]><![endif]--><?php if($isProfilePhoneMendatory): ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($isProfilePhoneMendatory): ?>
                         <div class="form-group <?php $__errorArgs = ['phone_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -343,7 +343,7 @@ unset($__errorArgs, $__bag); ?>">
 <?php endif; ?>
                             </div>
                         </div>
-                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         <div class="form-group <?php echo e($errors->get('password') ? 'am-invalid' : ''); ?>">
                             <?php if (isset($component)) { $__componentOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $attributes; } ?>
@@ -454,7 +454,7 @@ unset($__errorArgs, $__bag); ?>">
 <?php unset($__componentOriginalf94ed9c5393ef72725d159fe01139746); ?>
 <?php endif; ?>
                         </div>
-                        <!--[if BLOCK]><![endif]--><?php if(setting('_lernen.restricting_tutor_account_creation') === 'no'): ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(setting('_lernen.restricting_tutor_account_creation') === 'no'): ?>
                             <div class="form-group am-form-groupradio">
                                 <?php if (isset($component)) { $__componentOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $attributes; } ?>
@@ -525,7 +525,7 @@ unset($__errorArgs, $__bag); ?>">
                                     </div>
                                 </div>
                             </div>
-                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         <div class="form-group <?php $__errorArgs = ['terms'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -583,7 +583,7 @@ unset($__errorArgs, $__bag); ?> am-terms-check">
                     </div>
                 </div>
         </form>
-        <!--[if BLOCK]><![endif]--><?php if(!empty(setting('_api.enable_social_login')) && ((!empty(setting('_api.social_google_client_id')) && !empty(setting('_api.social_google_client_secret'))))): ?>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!empty(setting('_api.enable_social_login')) && ((!empty(setting('_api.social_google_client_id')) && !empty(setting('_api.social_google_client_secret'))))): ?>
             <div class="am-signinoption">
                 <span class="am-signinoption_br"><em><?php echo e(__('auth.or')); ?></em></span>
                 <a href="#" wire:click.prevent="redirectGoogle" wire:target="redirectGoogle" wire:loading.class="am-btn_disable" class="am-signinoption_btn">
@@ -597,7 +597,7 @@ unset($__errorArgs, $__bag); ?> am-terms-check">
 
                 </a>
             </div>
-        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginalc3ffbec469e53ba0c225d6242a0ccc8d)): ?>
