@@ -126,7 +126,7 @@
 @else
     <header @class([
         'am-header_two', $headerVariation,
-        'am-header-bg' => (empty($page) && !in_array(request()->route()->getName(), ['find-tutors','tutor-detail'])) || in_array($page?->slug, ['about-us', 'how-it-works', 'faq', 'terms-condition', 'privacy-policy'])
+        'am-header-bg' => (empty($page) && !in_array(request()->route()->getName(), ['find-tutors','tutor-detail'])) || in_array($page?->slug, ['about-us', 'how-it-works', 'terms-condition', 'privacy-policy'])
         ])>
         <div class="container-fluid">
             <div class="row">

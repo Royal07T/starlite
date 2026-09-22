@@ -324,16 +324,7 @@ class DefaultPageSettingSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
-            [
-                'name' => 'Faq',
-                'slug' => 'faq',
-                'title' => 'Faqs | Lernen',
-                'description' => 'Faqs | Lernen',
-                'settings' => null,
-                'status' => 'published',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
+
             [
                 'name' => 'How it works',
                 'slug' => 'how-it-works',

@@ -27,9 +27,6 @@ class DatabaseSeeder extends Seeder
             TutorSeeder::class,
             StudentSeeder::class,
             DefaultPageSettingSeeder::class,
-            BlogCategoriesSeeder::class,
-            BlogTagSeeder::class,
-            BlogSeeder::class,
         ]);
 
         Artisan::call('module:enable Meetfusion');
