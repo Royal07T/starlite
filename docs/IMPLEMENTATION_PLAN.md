@@ -4,9 +4,9 @@
 > Companion docs: `CODEBASE_AUDIT.md`, `TARGET_ARCHITECTURE.md`.
 > Guideline order: secure first, organize second, stabilize third, harden fourth.
 
-> **Phase 1 (Security) status:** IN PROGRESS on branch `security/fix-critical-secrets-auth`.
-> Completed: secrets removal (`.env`/`ai_assistant/.env` untracked + sanitized `.env.example`); AI `/api/v1/ask` requires `Authorization: Bearer <AI_SERVICE_TOKEN>`; removed blanket local SSL verify disable; removed `SET FOREIGN_KEY_CHECKS=0` in booking reschedule; Paystack secret no longer passed to browser nor accepted from client payload (uses server-side gateway settings).
-> Remaining (next): credential **rotation** (manual), webhook idempotency/verification audit, rate-limiting on payment/auth endpoints, IDOR policy pass, FastAPI tests.
+> **Phase 1 (Security) status:** DONE — branch `security/fix-critical-secrets-auth`.
+> Completed: secrets removal & `.env.example` templates; AI `/api/v1/ask` Bearer-token auth (+pytest); removed blanket SSL verify disable; removed `SET FOREIGN_KEY_CHECKS=0`; Paystack secret server-side only + payment tied to order metadata + idempotency guard in `paymentSuccess`; rate limits on web login/auth, API auth, payment prep and Payfast webhook; IDOR fixes (profile read, education/experience/certificate destroy); configurable Sanctum token expiry; Courses API gated on module-enabled; CI workflow (Laravel + FastAPI).
+> Manual follow-ups REQUIRED: **rotate all exposed credentials** (DB/Redis/mail/OpenAI/Stripe/SMTP) and optionally purge git history (BFG/filter-repo). 1.9 (runtime `.env` writes) still open — deferred as a medium behavioural refactor.
 
 ---
 
