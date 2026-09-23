@@ -1,5 +1,6 @@
 <?php
 
+// Phase 2: principal() global added; see app/Domain/Principal/PrincipalResolver.php
 use Modules\MeetFusion\Facades\MeetFusion;
 use Amentotech\LaraGuppy\Services\MessagesService;
 use Amentotech\LaraGuppy\Services\ThreadsService;
@@ -208,9 +209,7 @@ if (!function_exists('uniqueImageName')) {
 
     function uniqueImageName($image, $uniqueString)
     {
-        $extension = pathinfo($image, PATHINFO_EXTENSION);
-        $image = Str::replace(' ', '-', $image);
-        return  substr($image, 0, strrpos($image, '.')) . '-' . $uniqueString . '.' . $extension;
+        return \App\Domain\Shared\FileUpload::uniqueImageName($image, $uniqueString);
     }
 }
 
@@ -241,18 +240,7 @@ if (!function_exists('uniqueFileName')) {
 
     function uniqueFileName($fileUrl, $name)
     {
-        $path = storage_path('app/') . $fileUrl . '/' . $name;
-        $parts = pathinfo($path);
-        $dirName = $parts['dirname'];
-        $name = $parts["filename"];
-        $ext = $parts["extension"];
-        $sanitizedName = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $name));
-        $i = 0;
-        while (file_exists($dirName . '/' . $sanitizedName . '.' . $ext)) {
-            $i++;
-            $sanitizedName = $sanitizedName . " (" . $i . ")";
-        }
-        return $sanitizedName . '-' . Str::random(8) . '.' . $ext;
+        return \App\Domain\Shared\FileUpload::uniqueFileName($fileUrl, $name);
     }
 }
 
@@ -267,30 +255,7 @@ if (! function_exists('uploadImage')) {
 
     function uploadImage($dirName, $imageUrl)
     {
-        $disk = getStorageDisk();
-        $random_key     = Str::random(5) . time();
-        $file_ext       = ".png";
-        $directoryUrl   = storage_path('app/public/' . $dirName);
-
-        $i = 0;
-        while (file_exists($directoryUrl . '/' . $random_key . $file_ext)) {
-            $i++;
-            $random_key = $random_key . "(" . $i . ")";
-        }
-
-        $fileName           = $random_key . $file_ext;
-
-        if (!is_dir($directoryUrl)) {
-            mkdir($directoryUrl);
-        }
-
-        Storage::disk($disk)->put('profile_images/' . $fileName, file_get_contents($imageUrl));
-
-        if ($fileName) {
-            return $dirName . '/' . $fileName;
-        }
-
-        return '';
+        return \App\Domain\Shared\FileUpload::uploadBase64($dirName, $imageUrl);
     }
 }
 
@@ -298,7 +263,7 @@ if (!function_exists('parseToUTC')) {
 
     function parseToUTC($date)
     {
-        return Carbon::parse($date, getUserTimezone())->setTimezone('UTC');
+        return \App\Domain\Shared\TimeZone::toUTC($date);
     }
 }
 
@@ -306,8 +271,7 @@ if (!function_exists('parseToUserTz')) {
 
     function parseToUserTz($date, $timeZone = null)
     {
-        $tz = $timeZone ?? getUserTimezone();
-        return Carbon::parse($date, 'UTC')->setTimezone($tz);
+        return \App\Domain\Shared\TimeZone::toUser($date, $timeZone);
     }
 }
 
@@ -387,7 +351,7 @@ if (!function_exists('getStorageDisk')) {
 
     function getStorageDisk()
     {
-        return config('filesystems.default') == 'local' ? 'public' : config('filesystems.default');
+        return \App\Domain\Shared\Storage::disk();
     }
 }
 
@@ -480,91 +444,35 @@ if (! function_exists('getProfileImageURL')) {
 if (!function_exists('getCurrentCurrency')) {
     function getCurrentCurrency()
     {
-        $currency = !empty(session()->get('selected_currency')) ? session()->get('selected_currency') : (setting('_general.currency') ?? 'USD');
-        return !empty($currency) ? currencyList($currency) : array();
+        return \App\Domain\Shared\Currency::current();
     }
 }
 
 if (!function_exists('getCurrencySymbol')) {
     function getCurrencySymbol()
     {
-        $currencyDetail        = getCurrentCurrency();
-        $currencySymbol        = '$';
-        if (!empty($currencyDetail['symbol'])) {
-            $currencySymbol = $currencyDetail['symbol'];
-        }
-        return $currencySymbol;
+        return \App\Domain\Shared\Currency::symbol();
     }
 }
 
 if (!function_exists('formatAmount')) {
     function formatAmount($amount, $currencySuperscript = false)
     {
-        $decimals = (int)(setting('_general.number_of_decimals') ?? 2);
-        $decimalSeparator = (string)(!empty(setting('_general.decimal_separator')) ? setting('_general.decimal_separator') : '.');
-        $thousandSeparator = (string)(!empty(setting('_general.thousand_separator')) ? setting('_general.thousand_separator') : ',');
-        $formattedAmount = (string) number_format((float) $amount, $decimals, $decimalSeparator, $thousandSeparator);
-        $currencyPosition = (string)(!empty(setting('_general.currency_position')) ? setting('_general.currency_position') : 'left');
-
-        switch ($currencyPosition) {
-            case 'left':
-                return $currencySuperscript ? '<sup>' . getCurrencySymbol() . '</sup>' . $formattedAmount : getCurrencySymbol() . $formattedAmount;
-            case 'right':
-                return $currencySuperscript ? $formattedAmount . '<sup>' . getCurrencySymbol() . '</sup>' : $formattedAmount . getCurrencySymbol();
-            case 'left_space':
-                return $currencySuperscript ? '<sup>' . getCurrencySymbol() . '</sup>' . ' ' . $formattedAmount : getCurrencySymbol() . ' ' . $formattedAmount;
-            case 'right_space':
-                return $currencySuperscript ? $formattedAmount . ' <sup>' . getCurrencySymbol() . '</sup>' : $formattedAmount . ' ' . getCurrencySymbol();
-            default:
-                return $formattedAmount;
-        }
+        return \App\Domain\Shared\Currency::format($amount, $currencySuperscript);
     }
 }
 
 if (!function_exists('formatAmountWithoutDecimals')) {
     function formatAmountWithoutDecimals($amount, $currencySuperscript = false)
     {
-        $thousandSeparator = (string)(!empty(setting('_general.thousand_separator')) ? setting('_general.thousand_separator') : ',');
-        $formattedAmount = (string) number_format((float) $amount, 0, '', $thousandSeparator);
-        $currencyPosition = (string)(!empty(setting('_general.currency_position')) ? setting('_general.currency_position') : 'left');
-
-        switch ($currencyPosition) {
-            case 'left':
-                return $currencySuperscript ? '<sup>' . getCurrencySymbol() . '</sup>' . $formattedAmount : getCurrencySymbol() . $formattedAmount;
-            case 'right':
-                return $currencySuperscript ? $formattedAmount . '<sup>' . getCurrencySymbol() . '</sup>' : $formattedAmount . getCurrencySymbol();
-            case 'left_space':
-                return $currencySuperscript ? '<sup>' . getCurrencySymbol() . '</sup>' . ' ' . $formattedAmount : getCurrencySymbol() . ' ' . $formattedAmount;
-            case 'right_space':
-                return $currencySuperscript ? $formattedAmount . ' <sup>' . getCurrencySymbol() . '</sup>' : $formattedAmount . ' ' . getCurrencySymbol();
-            default:
-                return $formattedAmount;
-        }
+        return \App\Domain\Shared\Currency::formatWithoutDecimals($amount, $currencySuperscript);
     }
 }
 
 if (!function_exists('formatAmountV2')) {
     function formatAmountV2($amount)
     {
-        $decimals = (int)(!empty(setting('_general.number_of_decimals')) ? setting('_general.number_of_decimals') : 2);
-        $decimalSeparator = (string)(!empty(setting('_general.decimal_separator')) ? setting('_general.decimal_separator') : '.');
-        $thousandSeparator = (string)(!empty(setting('_general.thousand_separator')) ? setting('_general.thousand_separator') : ',');
-        $formattedAmount = (string) number_format((float) $amount, $decimals, $decimalSeparator, $thousandSeparator);
-        $currencyPosition = (string)(!empty(setting('_general.currency_position')) ? setting('_general.currency_position') : 'left');
-
-        list($integerPart, $decimalPart) = explode($decimalSeparator, $formattedAmount);
-        switch ($currencyPosition) {
-            case 'left':
-                return '<sup>' . getCurrencySymbol() . '</sup>' . $integerPart . '.' . '<sub>' . $decimalPart . '</sub>';
-            case 'right':
-                return $integerPart . '.' . '<sub>' . $decimalPart . '</sub>' . '<sup>' . getCurrencySymbol() . '</sup>';
-            case 'left_space':
-                return '<sup>' . getCurrencySymbol() . '</sup>' . ' ' . $integerPart . '.' . '<sub>' . $decimalPart . '</sub>';
-            case 'right_space':
-                return $integerPart . '.' . '<sub>' . $decimalPart . '</sub>' . ' ' . '<sup>' . getCurrencySymbol() . '</sup>';
-            default:
-                return $integerPart . '.' . '<sub>' . $decimalPart . '</sub>';
-        }
+        return \App\Domain\Shared\Currency::formatV2($amount);
     }
 }
 
@@ -639,19 +547,8 @@ if (!function_exists('getUserTimezone')) {
     function getUserTimezone($user = null)
     {
 
-        if (empty($user)) {
-            $user = Auth::user();
-        }
+        return \App\Domain\Shared\TimeZone::user($user);
 
-        $tz = $user?->id ? Cache::rememberForever('userTimeZone_' . $user->id, function () use ($user) {
-            return current($user->accountSetting()?->where('meta_key', 'timezone')->pluck('meta_value')->first() ?? []);
-        }) : null;
-
-        if ($tz) {
-            return $tz;
-        } else {
-            return setting('_general.timezone') ?? config('app.timezone');
-        }
     }
 }
 /**
@@ -2469,5 +2366,17 @@ if (!function_exists('isGoogleSociaLoginEnabled')) {
     function isGoogleSociaLoginEnabled()
     {
         return !empty(setting('_api.enable_social_login')) && ((!empty(setting('_api.social_google_client_id')) && !empty(setting('_api.social_google_client_secret'))));
+    }
+}
+
+if (!function_exists('principal')) {
+
+    /**
+     * Global accessor for the resolved Principal (web/API/queue context).
+     * Returns null in base contexts without an authenticated user.
+     */
+    function principal(): ?\App\Domain\Principal\Principal
+    {
+        return app(\App\Domain\Principal\PrincipalResolver::class)->resolve();
     }
 }

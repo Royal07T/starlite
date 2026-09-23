@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\CartService;
 use App\Services\DbNotificationService;
+use App\Domain\Principal\PrincipalResolver;
 use App\View\Composers\AdminComposer;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
@@ -20,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
     {
         // Configurable Sanctum/API token lifetime (minutes); 0 = non-expiring.
         $this->app->config->set('sanctum.expiration', (int) env('AUTH_TOKEN_EXPIRATION_MINUTES', 10080));
+
+        // Single resolved Principal per request/queue batch.
+        $this->app->singleton(PrincipalResolver::class);
+        $this->app->alias(PrincipalResolver::class, 'principal.resolver');
 
         // Removed Telescope registration as it's not installed
         $this->app->singleton('cart', function ($app) {
