@@ -136,7 +136,8 @@ class AuthController extends Controller
 
 
         $user->tokens()->where('name', 'lernen')->delete();
-        $success['token']   =  $user->createToken('lernen', ['*'], now()->addDays(7))->plainTextToken;
+        $tokenExpiry = (int) config('sanctum.expiration') ?: null;
+        $success['token']   =  $user->createToken('lernen', ['*'], $tokenExpiry ? now()->addMinutes($tokenExpiry) : null)->plainTextToken;
 
         $success['user']    =  new UserResource($user);
         if (!empty($user->email_verified_at)) {

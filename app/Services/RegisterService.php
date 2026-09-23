@@ -40,7 +40,8 @@ class RegisterService
         dispatch(new SendNotificationJob('registration', $user, $emailData));
         dispatch(new SendNotificationJob('registration', User::admin(), $emailData));
 
-        $user->token = $user->createToken('starlite')->plainTextToken;
+        $tokenExpiry = (int) config('sanctum.expiration') ?: null;
+        $user->token = $user->createToken('starlite', ['*'], $tokenExpiry ? now()->addMinutes($tokenExpiry) : null)->plainTextToken;
 
         return $user;
     }
