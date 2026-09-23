@@ -11,10 +11,12 @@ class SettingsUpdatedListener
      */
     public function handle(array $eventData): void
     {
-        if($eventData['section'] == '_lernen') {
-            foreach($eventData['data'] as $key => $value) {
-                if($key == 'payment_enabled') {
-                    if($value == 'yes') {
+        if ($eventData['section'] == '_lernen') {
+            SettingReader::reset();
+
+            foreach ($eventData['data'] as $key => $value) {
+                if ($key == 'payment_enabled') {
+                    if ($value == 'yes') {
                         if (Module::has('subscriptions') && Module::isDisabled('subscriptions')) {
                             Module::enable('subscriptions');
                         }
