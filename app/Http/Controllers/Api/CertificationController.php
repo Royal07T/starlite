@@ -139,6 +139,10 @@ class CertificationController extends Controller
             return $this->error(data: null,message: __('api.not_found'),code: Response::HTTP_NOT_FOUND);
         }
 
+        if($certificate?->user_id != Auth::user()?->id){
+            return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
+        }
+
         $certificates     = $certificateService->deleteCertificate($certificateId);
         return $this->success(data: null,message: __('api.certificate_deleted_successfully'));
     }

@@ -31,11 +31,11 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
 
     // Public routes
-    Route::post('login',                                            [AuthController::class,'login']);
-    Route::post('social-login',                                     [AuthController::class,'socialLogin']);
-    Route::post('social-profile',                                   [AuthController::class,'createSocialProfile']);
-    Route::post('register',                                         [AuthController::class,'register']);
-    Route::post('forget-password',                                  [AuthController::class,'resetEmailPassword']);
+    Route::post('login',                                            [AuthController::class,'login'])->middleware('throttle:10,1');
+    Route::post('social-login',                                     [AuthController::class,'socialLogin'])->middleware('throttle:10,1');
+    Route::post('social-profile',                                   [AuthController::class,'createSocialProfile'])->middleware('throttle:10,1');
+    Route::post('register',                                         [AuthController::class,'register'])->middleware('throttle:5,1');
+    Route::post('forget-password',                                  [AuthController::class,'resetEmailPassword'])->middleware('throttle:5,1');
     Route::get('recommended-tutors',                                [TutorController::class,'getRecommendedTutors']);
     Route::get('find-tutors',                                       [TutorController::class,'findTutots']);
     Route::get('tutor/{slug}',                                      [TutorController::class,'getTutorDetail']);
