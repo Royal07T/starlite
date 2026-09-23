@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Frontend;
 
+use App\Domain\ModuleRegistry\ModuleRegistry;
+
 use Modules\LaraPayease\Facades\PaymentDriver;
 use App\Livewire\Forms\Frontend\OrderForm;
 use App\Models\Country;
@@ -214,7 +216,7 @@ class Checkout extends Component
                             $this->removeCoupon($item['options']['discount_code']);
                         }
                     } elseif (
-                        Module::has('courses') && Module::isEnabled('courses') && $item['cartable_type'] == \Modules\Courses\Models\Course::class &&
+                        ModuleRegistry::capabilityEnabled('courses') && $item['cartable_type'] == \Modules\Courses\Models\Course::class &&
                         ($choosedSubscription?->remaining_credits['courses'] ?? 0) > 0
                     ) {
                         $this->checkoutReady   = true;

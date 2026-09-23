@@ -17,15 +17,24 @@ final class ModuleRegistry
 {
     /** capability => module facade key */
     private const CAPABILITY_MODULES = [
-        'course_bundles' => 'CourseBundles',
-        'course' => 'Courses',
-        'quiz' => 'Quiz',
-        'meetings' => 'MeetFusion',
-        'meet_fusion' => 'MeetFusion',
-        'commerce' => 'LaraPayease',
-        'payments' => 'LaraPayease',
-        'subscriptions' => 'Subscriptions',
-        'notifications' => 'Notifications',
+        'course_bundles'        => 'CourseBundles',
+        'bundles'               => 'CourseBundles',
+        'course'                => 'Courses',
+        'courses'               => 'Courses',
+        'quiz'                  => 'Quiz',
+        'meetings'              => 'MeetFusion',
+        'meet_fusion'           => 'MeetFusion',
+        'meetfusion'            => 'MeetFusion',
+        'commerce'              => 'LaraPayease',
+        'payments'              => 'LaraPayease',
+        'subscriptions'         => 'Subscriptions',
+        'notifications'         => 'Notifications',
+        'forum'                 => 'ForumWise',
+        'forumwise'             => 'ForumWise',
+        'certificates'          => 'Upcertify',
+        'upcertify'             => 'Upcertify',
+        'deals'                 => 'Kupondeal',
+        'kupondeal'             => 'Kupondeal',
     ];
 
     public static function capabilityModule(string $capability): ?string

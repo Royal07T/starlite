@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Casts\BookingStatus;
+use App\Domain\ModuleRegistry\ModuleRegistry;
 use App\Jobs\CompleteBookingJob;
 use App\Jobs\CompleteFreePurchaseJob;
 use App\Jobs\CreateGoogleCalendarEventJob;
@@ -435,7 +436,7 @@ class BookingService
                 $metaData['assign_quiz_certificate'] = $slots['assign_quiz_certificate'];
             }
 
-            if (Module::has('subscriptions') && Module::isEnabled('subscriptions') && !empty($slots['allowed_for_subscriptions'])) {
+            if (ModuleRegistry::capabilityEnabled('subscriptions') && !empty($slots['allowed_for_subscriptions'])) {
                 $metaData['allowed_for_subscriptions'] = 1;
             }
 
@@ -594,7 +595,7 @@ class BookingService
             $updatedArray = Arr::only($updatedData, ['session_fee', 'spaces', 'description']);
             $updatedArray['meta_data'] = $slot->meta_data;
             $updatedArray['meta_data']['meeting_link'] = $updatedData['meeting_link'];
-            if (Module::has('subscriptions') && Module::isEnabled('subscriptions') && setting('_lernen.subscription_sessions_allowed') == 'tutor') {
+            if (ModuleRegistry::capabilityEnabled('subscriptions') && setting('_lernen.subscription_sessions_allowed') == 'tutor') {
                 $updatedArray['meta_data']['allowed_for_subscriptions'] = $updatedData['allowed_for_subscriptions'] ? 1 : 0;
             }
             if (isActiveModule('upcertify') && isActiveModule('quiz')) {
