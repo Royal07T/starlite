@@ -19,7 +19,7 @@ final class TimeZone
             $user = Auth::user();
         }
 
-        $tz = $user?->getKey() ? Cache::rememberForever('userTimeZone_' . $user->getKey(), function () use ($user) {
+        $tz = $user?->getKey() ? Cache::rememberForever('userTimeZone_'.$user->getKey(), function () use ($user) {
             return current($user->accountSetting()?->where('meta_key', 'timezone')->pluck('meta_value')->first() ?? []);
         }) : null;
 
