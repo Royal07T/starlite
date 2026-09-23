@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Courses\Http\Controllers\Api\CartController;
 use Modules\Courses\Http\Controllers\Api\CoursesController;
 
-Route::prefix('v1')->group(function () {
+Route::middleware('enabled:courses')->prefix('v1')->group(function () {
 
     // Public routes
     Route::get('courses',                     [CoursesController::class, 'getCourses']);

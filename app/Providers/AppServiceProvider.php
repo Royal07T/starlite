@@ -18,6 +18,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // Configurable Sanctum/API token lifetime (minutes); 0 = non-expiring.
+        $this->app->config->set('sanctum.expiration', (int) env('AUTH_TOKEN_EXPIRATION_MINUTES', 10080));
+
         // Removed Telescope registration as it's not installed
         $this->app->singleton('cart', function ($app) {
             return app(CartService::class);
