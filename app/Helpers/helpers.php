@@ -2096,26 +2096,29 @@ if (!function_exists('getGatewayObject')) {
         if (!empty(getCurrentCurrency())) {
             $settings['currency'] = getCurrentCurrency()['code'];
         }
+
         $gateways = PaymentDriver::supportedGateways();
-        if (!empty($data)) {
-            $mode = !empty($settings['enable_test_mode']) ? 'test' : 'live';
 
-            $keys = array_intersect_key($settings, $gateways[$gateway]['keys']);
-
-            if ($gateway == 'payfast') {
-                $keys['webhook_url'] = route('payfast.webhook');
-            }
-
-            $gatewayObj = PaymentDriver::{$gateway}();
-            $gatewayObj->setKeys($keys);
-            $gatewayObj->setCurrency($settings['currency'] ?? 'USD');
-            $gatewayObj->setExchangeRate($settings['exchange_rate'] ?? '');
-            $gatewayObj->setMode($mode);
-
-            return $gatewayObj;
-        } else {
+        // Return empty for unsupported/removed gateways instead of crashing the caller.
+        if (empty($data) || !isset($gateways[$gateway])) {
             return '';
         }
+
+        $mode = !empty($settings['enable_test_mode']) ? 'test' : 'live';
+
+        $keys = array_intersect_key($settings, $gateways[$gateway]['keys']);
+
+        if ($gateway == 'payfast') {
+            $keys['webhook_url'] = route('payfast.webhook');
+        }
+
+        $gatewayObj = PaymentDriver::{$gateway}();
+        $gatewayObj->setKeys($keys);
+        $gatewayObj->setCurrency($settings['currency'] ?? 'USD');
+        $gatewayObj->setExchangeRate($settings['exchange_rate'] ?? '');
+        $gatewayObj->setMode($mode);
+
+        return $gatewayObj;
     }
 }
 

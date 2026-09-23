@@ -96,15 +96,20 @@ class SiteController extends Controller
 
     public function payfastWebhook(Request $request)
     {
-        header('HTTP/1.0 200 OK');
-        flush();
         $gatewayObj = getGatewayObject('payfast');
-        if (!empty($gatewayObj)) {
-            $paymentData = $gatewayObj->paymentResponse($request->all());
-            if (!empty($paymentData) && $paymentData['status'] == Response::HTTP_OK) {
-                $this->paymentSuccess($request, webhook: true);
-            }
+
+        // No payfast driver is currently configured/enabled; acknowledge so providers don't retry forever.
+        if (empty($gatewayObj)) {
+            Log::warning('payfast webhook received but gateway is not configured', ['ip' => $request->ip()]);
+            return response('OK', Response::HTTP_OK);
         }
+
+        $paymentData = $gatewayObj->paymentResponse($request->all());
+        if (!empty($paymentData) && $paymentData['status'] == Response::HTTP_OK) {
+            $this->paymentSuccess($request, webhook: true);
+        }
+
+        return response('OK', Response::HTTP_OK);
     }
 
     public function paymentSuccess(Request $request, $webhook = false)
@@ -124,6 +129,22 @@ class SiteController extends Controller
                 $paymentData = $gatewayObj->paymentResponse($request->all());
                 if (!empty($paymentData) && $paymentData['status'] == Response::HTTP_OK) {
                     $orderDetail   = $orderServices->getOrderDetail($paymentData['data']['order_id']);
+
+                    if (empty($orderDetail)) {
+                        return redirect(route('checkout'))->with('error', __('general.payment_cancelled_desc'));
+                    }
+
+                    // Idempotency guard: never re-process an already-completed order.
+                    if ($orderDetail->status === 'complete') {
+                        $request->session()->forget('payment_data');
+                        Cart::clear();
+                        session()->forget('order_id');
+                        if ($request->source == 'api' && $request->upi) {
+                            return response()->json(['success' => true, 'message' => __('general.payment_successful')], Response::HTTP_OK);
+                        }
+                        return redirect()->route('thank-you', ['id' => $orderDetail->id]);
+                    }
+
                     $status = $orderServices->updateOrder($orderDetail, ['status' => 'complete', 'transaction_id' => $paymentData['data']['transaction_id']]);
                     if ($status) {
                         dispatch(new CompletePurchaseJob($orderDetail));
