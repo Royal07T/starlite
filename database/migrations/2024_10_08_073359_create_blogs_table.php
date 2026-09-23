@@ -14,11 +14,8 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('author_id')->constrained('users');
-            $table->string('title')->fullText();
-$table->text('description');
-	if (Schema::getConnection()->getDriverName() === 'mysql') {
-		$table->text('description')->fullText();
-	};
+			$table->string('title')->fullText();
+			$table->text('description')->fullText();
             $table->string('slug')->nullable();
             $table->text('meta_title')->nullable();
             $table->text('meta_description')->nullable();
