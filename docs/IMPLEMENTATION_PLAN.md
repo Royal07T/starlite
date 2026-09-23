@@ -65,7 +65,7 @@
 
 | Task | Detail |
 |---|---|
-| 3.1 | Write characterization tests first: capture current behavior of `addUserSubjectGroupSessions`, `addTimeSlots`, `reservedBookingSlot`, `createBooking`, `rescheduleSession`, free-purchase paths, calendar/meeting effects. Use transactional DB tests with factories. |
+| 3.1 | Write characterization tests first: capture current behavior of `addUserSubjectGroupSessions`, `addTimeSlots`, `reservedBookingSlot`, `rescheduleSession`, `createBookingEventGoogleCalendar`, free-purchase paths. Use transactional DB tests with factories. |
 | 3.2 | Extract `SlotRepository` (slot generation & queries currently in BookingService). |
 | 3.3 | Extract `BookingService` orchestration → `Tutoring\Actions\` (`CreateBooking`, `RescheduleBooking`, `CancelBooking`, `CompleteBooking`) each with a command DTO + events. |
 | 3.4 | Extract `ReservationService` (reservation + auto-expiry `RemoveBookingReservationJob` behavior — keep job, move logic). |
