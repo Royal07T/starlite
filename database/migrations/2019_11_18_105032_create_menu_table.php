@@ -15,8 +15,8 @@ class CreateMenuTable extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->fullText();
-            $table->string('location')->nullable()->fullText();
+            if (Schema::getConnection()->getDriverName() === 'mysql') { $table->string('name')->fullText(); }
+            if (Schema::getConnection()->getDriverName() === 'mysql') { $table->string('location')->nullable()->fullText(); }
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ return new class extends Migration {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255)->fulltext();
-            $table->text('description')->nullable()->fullText();
+            if (Schema::getConnection()->getDriverName() === 'mysql') { $table->text('description')->nullable()->fullText(); }
             $table->enum('status', ['active', 'inactive'])->default('active')->index();
             $table->softDeletes();
         });

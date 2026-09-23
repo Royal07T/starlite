@@ -13,8 +13,8 @@ return new class extends Migration {
     public function up() {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 200)->fullText();
-            $table->text('description')->nullable()->fullText();
+            if (Schema::getConnection()->getDriverName() === 'mysql') { $table->string('name', 200)->fullText(); }
+            if (Schema::getConnection()->getDriverName() === 'mysql') { $table->text('description')->nullable()->fullText(); }
             $table->enum('status', ['active', 'inactive'])->default('active')->index();
             $table->softDeletes();
             $table->timestamps();

@@ -13,9 +13,9 @@ return new class extends Migration {
     public function up() {
         Schema::create('email_templates', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->fullText();
-            $table->string('type')->index()->fullText();
-            $table->string('role')->index()->fullText();
+            if (Schema::getConnection()->getDriverName() === 'mysql') { $table->string('title')->fullText(); }
+            if (Schema::getConnection()->getDriverName() === 'mysql') { $table->string('type')->index()->fullText(); }
+            if (Schema::getConnection()->getDriverName() === 'mysql') { $table->string('role')->index()->fullText(); }
             $table->text('content');
             $table->enum('status', ['active', 'inactive'])->default('active')->index();
             $table->timestamps();
