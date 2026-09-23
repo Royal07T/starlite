@@ -135,6 +135,10 @@ class ExperienceController extends Controller
             return $this->error(data: null,message: __('api.not_found'),code: Response::HTTP_NOT_FOUND);
         }
 
+        if($experience?->user_id != Auth::user()?->id){
+            return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
+        }
+
         $experiencesService->deleteExperience($experienceId);
         return $this->success(data: null,message: __('api.experience_deleted_successfully'));
     }

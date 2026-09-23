@@ -41,18 +41,25 @@ class Paystack extends BasePaymentDriver
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $this->getKeys()['paystack_secret_key'],
             'Content-Type' => 'application/json',
-        ])->get('https://api.paystack.co/transaction/verify/' . $reference);
+        ])->withOptions(verify: true)->get('https://api.paystack.co/transaction/verify/' . $reference);
 
         $responseData = $response->json();
 
         if ($response->successful() && isset($responseData['data']['status']) && $responseData['data']['status'] === 'success') {
             $transaction_id = $responseData['data']['reference'];
-            
+
+            // Bind the completed transaction to the order it was initialized for;
+            // never trust a client-supplied order_id for a verified payment.
+            $metadataOrderId = data_get($responseData['data'], 'metadata.order_id');
+            if ($orderId !== null && $metadataOrderId !== null && (string) $metadataOrderId !== (string) $orderId) {
+                return ['status' => Response::HTTP_FORBIDDEN, 'order_id' => $orderId, 'message' => __('Order does not match payment metadata')];
+            }
+
             return [
                 'status' => Response::HTTP_OK,
                 'data' => [
                     'transaction_id' => $transaction_id,
-                    'order_id' => $orderId
+                    'order_id' => $metadataOrderId ?? $orderId
                 ]
             ];
         }

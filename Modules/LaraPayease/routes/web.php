@@ -14,6 +14,6 @@ use Modules\LaraPayease\Http\Controllers\PaystackPaymentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('payease/stripe', [StripePaymentController::class, 'prepareCharge'])->name('payease.stripe');
-Route::post('payease/paystack', [PaystackPaymentController::class, 'prepareCharge'])->name('payease.paystack');
-Route::get('payease/paystack/callback', [PaystackPaymentController::class, 'handleCallback'])->name('payease.paystack.callback');
+Route::post('payease/stripe', [StripePaymentController::class, 'prepareCharge'])->name('payease.stripe')->middleware('throttle:30,1');
+Route::post('payease/paystack', [PaystackPaymentController::class, 'prepareCharge'])->name('payease.paystack')->middleware('throttle:30,1');
+Route::get('payease/paystack/callback', [PaystackPaymentController::class, 'handleCallback'])->name('payease.paystack.callback')->middleware('throttle:60,1');

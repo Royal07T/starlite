@@ -133,6 +133,10 @@ class EducationController extends Controller
             return $this->error(data: null,message: __('api.not_found'),code: Response::HTTP_NOT_FOUND);
         }
 
+        if($eduction?->user_id != Auth::user()?->id){
+            return $this->error(data: null,message: __('api.unauthorized_access'),code: Response::HTTP_FORBIDDEN);
+        }
+
         $educationService->deleteEducation($educationId);
         return $this->success(data: null,message: __('api.education_deleted_successfully'));
     }

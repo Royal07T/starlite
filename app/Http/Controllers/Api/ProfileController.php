@@ -17,6 +17,10 @@ class ProfileController extends Controller
 
     public function getProfile($id)
     {
+        // Prevent cross-account access: only the authenticated user may read their own profile.
+        if ((int) $id !== (int) Auth::id()) {
+            return $this->error(data: null, message: __('api.unauthorized_access'), code: Response::HTTP_FORBIDDEN);
+        }
 
         $user = User::find($id);
         
