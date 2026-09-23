@@ -40,10 +40,10 @@ final class Currency
         $symbol = self::symbol();
 
         return match ($currencyPosition) {
-            'left' => $currencySuperscript ? '<sup>' . $symbol . '</sup>' . $formattedAmount : $symbol . $formattedAmount,
-            'right' => $currencySuperscript ? $formattedAmount . '<sup>' . $symbol . '</sup>' : $formattedAmount . $symbol,
-            'left_space' => $currencySuperscript ? '<sup>' . $symbol . '</sup>' . ' ' . $formattedAmount : $symbol . ' ' . $formattedAmount,
-            'right_space' => $currencySuperscript ? $formattedAmount . ' <sup>' . $symbol . '</sup>' : $formattedAmount . ' ' . $symbol,
+            'left' => $currencySuperscript ? '<sup>'.$symbol.'</sup>'.$formattedAmount : $symbol.$formattedAmount,
+            'right' => $currencySuperscript ? $formattedAmount.'<sup>'.$symbol.'</sup>' : $formattedAmount.$symbol,
+            'left_space' => $currencySuperscript ? '<sup>'.$symbol.'</sup>'.' '.$formattedAmount : $symbol.' '.$formattedAmount,
+            'right_space' => $currencySuperscript ? $formattedAmount.' <sup>'.$symbol.'</sup>' : $formattedAmount.' '.$symbol,
             default => $formattedAmount,
         };
     }
@@ -57,10 +57,10 @@ final class Currency
         $symbol = self::symbol();
 
         return match ($currencyPosition) {
-            'left' => $currencySuperscript ? '<sup>' . $symbol . '</sup>' . $formattedAmount : $symbol . $formattedAmount,
-            'right' => $currencySuperscript ? $formattedAmount . '<sup>' . $symbol . '</sup>' : $formattedAmount . $symbol,
-            'left_space' => $currencySuperscript ? '<sup>' . $symbol . '</sup>' . ' ' . $formattedAmount : $symbol . ' ' . $formattedAmount,
-            'right_space' => $currencySuperscript ? $formattedAmount . ' <sup>' . $symbol . '</sup>' : $formattedAmount . ' ' . $symbol,
+            'left' => $currencySuperscript ? '<sup>'.$symbol.'</sup>'.$formattedAmount : $symbol.$formattedAmount,
+            'right' => $currencySuperscript ? $formattedAmount.'<sup>'.$symbol.'</sup>' : $formattedAmount.$symbol,
+            'left_space' => $currencySuperscript ? '<sup>'.$symbol.'</sup>'.' '.$formattedAmount : $symbol.' '.$formattedAmount,
+            'right_space' => $currencySuperscript ? $formattedAmount.' <sup>'.$symbol.'</sup>' : $formattedAmount.' '.$symbol,
             default => $formattedAmount,
         };
     }
@@ -77,11 +77,11 @@ final class Currency
         $symbol = self::symbol();
 
         return match ($currencyPosition) {
-            'left' => '<sup>' . $symbol . '</sup>' . $integerPart . '.' . '<sub>' . $decimalPart . '</sub>',
-            'right' => $integerPart . '.' . '<sub>' . $decimalPart . '</sub>' . '<sup>' . $symbol . '</sup>',
-            'left_space' => '<sup>' . $symbol . '</sup>' . ' ' . $integerPart . '.' . '<sub>' . $decimalPart . '</sub>',
-            'right_space' => $integerPart . '.' . '<sub>' . $decimalPart . '</sub>' . ' ' . '<sup>' . $symbol . '</sup>',
-            default => $integerPart . '.' . '<sub>' . $decimalPart . '</sub>',
+            'left' => '<sup>'.$symbol.'</sup>'.$integerPart.'.'.'<sub>'.$decimalPart.'</sub>',
+            'right' => $integerPart.'.'.'<sub>'.$decimalPart.'</sub>'.'<sup>'.$symbol.'</sup>',
+            'left_space' => '<sup>'.$symbol.'</sup>'.' '.$integerPart.'.'.'<sub>'.$decimalPart.'</sub>',
+            'right_space' => $integerPart.'.'.'<sub>'.$decimalPart.'</sub>'.' '.'<sup>'.$symbol.'</sup>',
+            default => $integerPart.'.'.'<sub>'.$decimalPart.'</sub>',
         };
     }
 }

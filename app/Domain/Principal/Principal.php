@@ -11,16 +11,18 @@ namespace App\Domain\Principal;
 final class Principal
 {
     public const CONTEXT_WEB = 'web';
+
     public const CONTEXT_API = 'api';
+
     public const CONTEXT_QUEUE = 'queue';
+
     public const CONTEXT_CLI = 'cli';
 
     public function __construct(
         public readonly ?int $userId,
         public readonly ?string $role,
         public readonly string $context,
-    ) {
-    }
+    ) {}
 
     public static function system(string $context = self::CONTEXT_CLI): self
     {

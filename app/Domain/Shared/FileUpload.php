@@ -13,19 +13,19 @@ final class FileUpload
 {
     public static function uniqueFileName(string $fileUrl, string $name): string
     {
-        $path = storage_path('app/') . $fileUrl . '/' . $name;
+        $path = storage_path('app/').$fileUrl.'/'.$name;
         $parts = pathinfo($path);
         $dirName = $parts['dirname'];
         $name = $parts['filename'];
         $ext = $parts['extension'];
         $sanitizedName = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $name));
         $i = 0;
-        while (file_exists($dirName . '/' . $sanitizedName . '.' . $ext)) {
+        while (file_exists($dirName.'/'.$sanitizedName.'.'.$ext)) {
             $i++;
-            $sanitizedName = $sanitizedName . ' (' . $i . ')';
+            $sanitizedName = $sanitizedName.' ('.$i.')';
         }
 
-        return $sanitizedName . '-' . Str::random(8) . '.' . $ext;
+        return $sanitizedName.'-'.Str::random(8).'.'.$ext;
     }
 
     public static function uniqueImageName(string $image, string $uniqueString): string
@@ -33,7 +33,7 @@ final class FileUpload
         $extension = pathinfo($image, PATHINFO_EXTENSION);
         $image = Str::replace(' ', '-', $image);
 
-        return substr($image, 0, strrpos($image, '.')) . '-' . $uniqueString . '.' . $extension;
+        return substr($image, 0, strrpos($image, '.')).'-'.$uniqueString.'.'.$extension;
     }
 
     /**
@@ -42,26 +42,26 @@ final class FileUpload
     public static function uploadBase64(string $dirName, string $imageUrl): string
     {
         $disk = Storage::disk();
-        $randomKey = Str::random(5) . time();
+        $randomKey = Str::random(5).time();
         $fileExt = '.png';
-        $directoryUrl = storage_path('app/public/' . $dirName);
+        $directoryUrl = storage_path('app/public/'.$dirName);
 
         $i = 0;
-        while (file_exists($directoryUrl . '/' . $randomKey . $fileExt)) {
+        while (file_exists($directoryUrl.'/'.$randomKey.$fileExt)) {
             $i++;
-            $randomKey = $randomKey . '(' . $i . ')';
+            $randomKey = $randomKey.'('.$i.')';
         }
 
-        $fileName = $randomKey . $fileExt;
+        $fileName = $randomKey.$fileExt;
 
         if (! is_dir($directoryUrl)) {
             mkdir($directoryUrl);
         }
 
-        Storage::disk($disk)->put('profile_images/' . $fileName, file_get_contents($imageUrl));
+        Storage::disk($disk)->put('profile_images/'.$fileName, file_get_contents($imageUrl));
 
         if ($fileName) {
-            return $dirName . '/' . $fileName;
+            return $dirName.'/'.$fileName;
         }
 
         return '';
